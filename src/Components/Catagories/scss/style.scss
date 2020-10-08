@@ -1,0 +1,21 @@
+#slider{
+    width: 90%;
+    display: block;
+    
+   
+    .slider-item{
+        .title{
+            color: gray;
+            text-align: center;
+            font-size: small;
+        }
+        &:hover{
+            .title{
+                transition:0.5s ease all;
+                color: black;
+                font-size:medium;
+
+            }
+        }
+    }
+}

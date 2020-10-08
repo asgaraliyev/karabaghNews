@@ -1,0 +1,69 @@
+// Header SCSS
+$black:#111111;
+$pink:#FF004E;
+body{
+}
+header{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+    // background: gray;
+    .side{
+        height: 100%;
+        // background: yellow;
+        // margin: 0px 1px;
+    }
+    .left,.right{
+        flex: 1;
+    }
+    .center{
+        flex: 14;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        h2{
+            font-size: medium;
+        }
+    }
+    .left{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .menu-icon{
+            width: 25px;
+            fill: $black;
+        }
+        .menu-by-red-cirlce{
+            position: relative;
+            span{
+                width: 10px;
+                height: 10px;
+                background:$pink;
+                position: absolute;
+                top: 0;
+                right: 0;
+                border-radius: 50%;
+                color: white;
+                font-size: 0.5em;
+                display: flex;
+                font-weight: bold;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+    .right{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .search-by-red-cirlce{
+            position: relative;
+                .search-icon{
+                    width: 20px;
+                    fill: $black;
+                }
+        }
+    }
+}

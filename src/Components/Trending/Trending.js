@@ -8,10 +8,14 @@ export default class Trending extends Component {
   render() {
     const Slider_Settings = {
       dost: false,
-      infinite: false,
-      speed: 500,
-      slidesToShow:3,
-      slidesToScroll: 3,
+      infinite: true,
+      speed: 3000,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      arrows: false,
+      autoplay:true,
+      autoplaySpeed: 9000,
+      pauseOnHover:true,
     };
     const photoLink =
       "https://s.yimg.com/uu/api/res/1.2/dVm2lpdbEChZhim3GqC0YA--~B/aD0xMDA4O3c9MTYwMDthcHBpZD15dGFjaHlvbg--/https://o.aolcdn.com/hss/storage/midas/54d1b92531537142a9df2883bd95fbc/206536710/drones-ed.jpg";

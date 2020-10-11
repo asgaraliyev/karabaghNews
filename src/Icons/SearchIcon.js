@@ -1,12 +1,13 @@
 import React from "react";
 export default function SearchIcon(props) {
+  const { width, height, fill, classNamee } = props.info;
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={props.width}
-      height={props.height}
-      fill={props.fill}
-      className={props.classNameSvg}
+      width={width}
+      height={height}
+      fill={fill}
+      className={classNamee}
       x="0"
       y="0"
       enableBackground="new 0 0 28.931 28.932"

@@ -1,6 +1,8 @@
+// EditorChoice SCSS
+
 #editor-choise {
     margin: 20px 0px;
-    height: 200px;
+    height: 220px;
     border-radius: 15px;
     overflow: hidden;
     display: flex;
@@ -33,5 +35,28 @@
 
     .content {
         padding: 10px;
+        
+        .medal-icon{
+            // width: 100px;
+        }
+        .editor-choice,.description{
+            font-size: small;
+            color: gray;
+        }
+        .profile-title{
+            color: gray;
+            bottom: 5px;
+            left: 5px;
+            position: relative;
+        }
+        .icon{
+            float: right;
+            right: 0;
+            position: relative;
+            svg{
+                fill: gray;
+            }
+        }
+       
     }
 }

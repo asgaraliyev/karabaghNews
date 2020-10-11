@@ -23,11 +23,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 const Slider_Settings = {
   dost: false,
-  infinite: false,
-  speed: 500,
+  infinite: true,
+  speed: 3000,
   slidesToShow: 2,
-  slidesToScroll: 2,
+  slidesToScroll: 1,
   arrows: false,
+  autoplay:true,
+  autoplaySpeed: 13000,
+  pauseOnHover:true,
+  rtl: true
 };
 export default function Authors() {
   const classes = useStyles();

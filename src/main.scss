@@ -1,16 +1,48 @@
-*{
+* {
     margin: 0;
     padding: 0;
     text-decoration: none;
     list-style: none;
 }
+
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
-*{
+
+* {
     font-family: 'Josefin Sans', sans-serif;
 }
-#app{
+
+#app {
     padding: 0px 15px;
 }
-.slick-slide{
-    *{ outline: none!important;}
+
+.display-inline-block {
+    display: inline-block !important;
+}
+
+.slick-arrow {
+    display: none !important;
+}
+
+.slick-slide {
+    * {
+        outline: none !important;
+    }
+}
+
+.my-node-enter {
+    opacity: 0;
+}
+
+.my-node-enter-active {
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.my-node-exit {
+    opacity: 1;
+}
+
+.my-node-exit-active {
+    opacity: 0;
+    transition: opacity 1s;
 }

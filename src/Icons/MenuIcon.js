@@ -1,12 +1,13 @@
 import React from "react";
 export default function MenuIcon(props) {
+  const { width, height, fill, classNamee } = props.info;
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={props.width}
-      height={props.height}
-      fill={props.fill}
-      className={props.classNameSvg}
+      width={width}
+      height={height}
+      fill={fill}
+      className={classNamee}
       viewBox="0 0 126 126"
     >
       <rect width="108" height="18" x="7" y="52"  rx="9"></rect>

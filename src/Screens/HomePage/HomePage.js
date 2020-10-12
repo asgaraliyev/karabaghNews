@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import Header from "../../Components/Header/Header";
 import Catagories from "../../Components/Catagories/Catagories";
-import Trending from "../../Components/Trending/Trending";
-
-import Authors from "../../Components/Authors/Authors";
-import EditorChoise from "../../Components/EditorChoise/EditorChoise";
-import OtherNews from "../../Components/OtherNews/OtherNews";
+import Trending from "./Trending/Trending";
+import Authors from "./Authors/Authors";
+import EditorChoise from "./EditorChoise/EditorChoise";
+import OtherNews from "./OtherNews/OtherNews";
 export default class HomePage extends Component {
   render() {
     return (

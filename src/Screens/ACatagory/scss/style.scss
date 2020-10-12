@@ -1,1 +1,48 @@
 // ACatagory SCSS
+#fist-catagory-news {
+    width: 100%;
+    height: 200px;
+    border-radius: 15px;
+    overflow: hidden;
+
+    .containter {
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+        .image-container,
+        .content-container {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            color: white;
+
+            img {
+                height: auto !important;
+                width: 100% !important;
+                position: absolute !important;
+                top: 50% !important;
+                left: 50% !important;
+                transform: translate(-50%, -50%) !important;
+
+            }
+        }
+
+        .image-container {
+            height: 100% !important;
+            padding: 0 !important;
+            margin: 0 !important;
+
+            div {
+                height: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+        }
+        .content-container{
+            background-color: red;
+            
+        }
+
+    }
+}

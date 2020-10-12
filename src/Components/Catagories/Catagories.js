@@ -9,17 +9,17 @@ export default function Catagories() {
   const Slider_Settings = {
     dost: false,
     infinite: true,
-    speed: 1000,
+    speed: 3000,
     slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToScroll: 1,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 6000,
+    autoplaySpeed: 1000,
     pauseOnHover: true,
     rtl: true,
   };
   function catagory_Changed(catalog) {
-    window.location.href=window.location.href+"catagory/"+catalog;
+    window.location.href = window.location.href + "catagory/" + catalog;
   }
   return (
     <div id="slider">
@@ -27,13 +27,15 @@ export default function Catagories() {
       <Slider {...Slider_Settings}>
         {catagories.map((catalog) => {
           return (
-            <div
-              className="slider-item"
-              data-target-catagory={catalog}
-              key={catalog}
-              onClick={() => catagory_Changed(catalog)}
-            >
-              <h3 className="title">{catalog}</h3>
+            <div className="slider-item">
+              <h3
+                className="title"
+                data-target-catagory={catalog}
+                key={catalog}
+                onMouseUp={() => catagory_Changed(catalog)}
+              >
+                {catalog}
+              </h3>
             </div>
           );
         })}

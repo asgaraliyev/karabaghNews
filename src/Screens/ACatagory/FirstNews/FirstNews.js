@@ -17,7 +17,12 @@ export default class FirstNews extends Component {
           <div className="image-container">
             <Image src={this.state.photoLink}></Image>
           </div>
-          <div className="content-container">text</div>
+          <div className="content-container">
+            <div className="content">
+              <h4>2022 Swimming Championships will be in Baku,Azerbaijan</h4>
+              <p> 2 hours ago</p>
+            </div>
+          </div>
         </div>
       </div>
     );

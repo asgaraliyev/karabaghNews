@@ -18,7 +18,7 @@ export default class ANewsContainer extends Component {
     return (
       <div className="news-container">
         <div className={`image-container ${widthOrHeight}`}>
-          <Image src={imageLink}></Image>
+          <Image style={{background:"rgb(0 0 0 / 58%)"}} src={imageLink}></Image>
         </div>
         {content && (
           <div className="content-container">

@@ -1,7 +1,7 @@
 // OtherNews scss
 #other-news {
     .child-other-news {
-        position: absolute;
+        position: relative;
         background-color: #F2F2F2;
         width: 100%;
         left: 0;
@@ -75,14 +75,14 @@
 
                         div {}
 
-                        img {
-                            width: auto !important;
-                            position: absolute !important;
-                            height: 100% !important;
-                            top: 50% !important;
-                            left: 50% !important;
-                            transform: translate(-50%, -50%) !important;
-                        }
+                        // img {
+                        //     width: auto !important;
+                        //     position: absolute !important;
+                        //     height: 100% !important;
+                        //     top: 50% !important;
+                        //     left: 50% !important;
+                        //     transform: translate(-50%, -50%) !important;
+                        // }
                     }
                 }
             }

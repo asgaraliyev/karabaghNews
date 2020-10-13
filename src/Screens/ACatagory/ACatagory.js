@@ -6,6 +6,7 @@ import FullWidthNews from "./FullWidthNews/FullWidthNews";
 import "./scss/style.scss";
 import SecondNews from "./SecondNews/SecondNews";
 import Trending from "../../Components/Trending/Trending";
+import OtherNews from "../../Components/OtherNews/OtherNews";
 export default function ACatagory() {
   const catagories = useSelector((state) => state.catagories);
   var { catagoryName } = useParams();
@@ -42,6 +43,10 @@ export default function ACatagory() {
       <br></br>
       <br></br>
       <Trending></Trending>
+
+      <br></br>
+      <br></br>
+      <OtherNews></OtherNews>
     </div>
   );
 }

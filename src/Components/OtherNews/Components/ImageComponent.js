@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "material-ui-image";
-import ANewsContainer from "../../../../Components/aNewsContainer/aNewsContainer";
+import ANewsContainer from "../../aNewsContainer/aNewsContainer";
 
 export default function ImageComponent() {
     const photoLink =
@@ -10,7 +10,7 @@ export default function ImageComponent() {
       {/* <div className="image-container">
         <Image src={photoLink} />
       </div> */}
-      <ANewsContainer content={false}></ANewsContainer>
+      <ANewsContainer content={false} width={true}></ANewsContainer>
     </div>
   );
 }

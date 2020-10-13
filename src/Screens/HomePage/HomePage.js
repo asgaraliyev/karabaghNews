@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Header from "../../Components/Header/Header";
 import Catagories from "../../Components/Catagories/Catagories";
-import Trending from "./Trending/Trending";
+import Trending from "../../Components/Trending/Trending";
 import Authors from "./Authors/Authors";
 import EditorChoise from "./EditorChoise/EditorChoise";
 import OtherNews from "./OtherNews/OtherNews";

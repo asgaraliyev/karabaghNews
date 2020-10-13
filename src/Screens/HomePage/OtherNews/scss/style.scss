@@ -19,7 +19,9 @@
                 height: 220px;
                 overflow: hidden;
                 box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.486);
-
+                @media only screen and (max-width: 600px) {
+                   height: auto;
+                }
                 article {
                     display: flex;
                     justify-content: space-around;
@@ -27,38 +29,46 @@
                     padding: 10px;
                     position: relative;
 
+                    @media only screen and (max-width: 600px) {
+                        flex-direction: column;
+                    }
+
                     .side {
                         flex: 1;
                         padding-bottom: 21px;
-                        .content{
+
+                        .content {
                             padding: 10px;
-                            .description{
+
+                            .description {
                                 font-size: small;
                                 color: #434343;
                             }
-                            .time{
+
+                            .time {
                                 font-size: x-small;
                                 color: #999898;
                             }
                         }
                     }
-                    .image-container{
+
+                    .image-container {
                         width: 100%;
                         height: 100%;
                         position: relative;
                         overflow: hidden;
                         border-radius: 20px;
                         margin-bottom: 10px;
-                        div{
-                       
-                        }
-                        img{
-                            width: auto!important;
-                            position: absolute!important;
-                            height: 100%!important;
-                            top: 50%!important;
-                            left: 50%!important;
-                            transform: translate(-50%,-50%)!important;
+
+                        div {}
+
+                        img {
+                            width: auto !important;
+                            position: absolute !important;
+                            height: 100% !important;
+                            top: 50% !important;
+                            left: 50% !important;
+                            transform: translate(-50%, -50%) !important;
                         }
                     }
                 }

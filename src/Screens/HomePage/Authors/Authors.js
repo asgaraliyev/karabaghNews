@@ -25,13 +25,34 @@ const Slider_Settings = {
   dost: false,
   infinite: true,
   speed: 3000,
-  slidesToShow: 2,
   slidesToScroll: 1,
+  slidesToShow: 3,
   arrows: false,
-  autoplay:true,
+  autoplay: true,
   autoplaySpeed: 13000,
-  pauseOnHover:true,
-  rtl: true
+  pauseOnHover: true,
+  rtl: true,
+  responsive: [
+    {
+      breakpoint: 450,
+      settings: {
+        slidesToShow: 1,
+      },
+    },
+    {
+      breakpoint: 900,
+      settings: {
+        slidesToShow: 2,
+      },
+    },
+    
+    {
+      breakpoint: 1000,
+      settings: {
+        slidesToShow: 3,
+      },
+    },
+  ],
 };
 export default function Authors() {
   const classes = useStyles();

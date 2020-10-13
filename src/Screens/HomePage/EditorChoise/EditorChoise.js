@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import MedalIcon from "../../../Icons/MedalIcon";
 import Avatar from "@material-ui/core/Avatar";
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import ANewsContainer from '../../../Components/aNewsContainer/aNewsContainer'
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -30,9 +31,7 @@ export default function EditorChoise() {
   return (
     <div id="editor-choise">
       <div className="photo side">
-        <div className="image-container">
-          <Image src={newsPhoto} />
-        </div>
+       <ANewsContainer width={true} content={false}></ANewsContainer>
       </div>
       <div className="content side">
         <div>

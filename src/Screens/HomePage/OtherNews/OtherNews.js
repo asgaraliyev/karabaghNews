@@ -32,6 +32,36 @@ export default class OtherNews extends Component {
                 <Content></Content>
               </article>
             </li>
+            <li>
+              <article>
+                <ImageComponent></ImageComponent>
+                <Content></Content>
+              </article>
+            </li>
+            <li>
+              <article>
+                <ImageComponent></ImageComponent>
+                <Content></Content>
+              </article>
+            </li>
+            <li>
+              <article>
+                <ImageComponent></ImageComponent>
+                <Content></Content>
+              </article>
+            </li>
+            <li>
+              <article>
+                <ImageComponent></ImageComponent>
+                <Content></Content>
+              </article>
+            </li>
+            <li>
+              <article>
+                <ImageComponent></ImageComponent>
+                <Content></Content>
+              </article>
+            </li>
           </ul>
         </div>
       </div>

@@ -8,6 +8,11 @@
     display: flex;
     justify-content: center;
 
+    @media only screen and (max-width: 600px) {
+        flex-direction: column;
+        height: auto;
+    }
+
     .side {
         flex: 1;
     }
@@ -15,48 +20,59 @@
     .photo {
         overflow: hidden;
 
+        @media only screen and (max-width: 600px) {
+          
+            height: 200px;
+        }
+
         .image-container {
             position: relative;
             overflow: hidden;
             border-radius: 15px;
-            width:100%;
-            height:100%;
+            width: 100%;
+            height: 100%;
             box-shadow: 0px 0px 2px black;
-            img {
-                position: absolute!important;
-                top: 50%!important;
-                left: 50%!important;
-                width:auto!important;
-                height:100%;
-                transform: translate(-50%,-50%)!important;
-            }
+
+            // img {
+            //     position: absolute !important;
+            //     top: 50% !important;
+            //     left: 50% !important;
+            //     width: auto !important;
+            //     height: 100%;
+            //     transform: translate(-50%, -50%) !important;
+            // }
         }
     }
 
     .content {
         padding: 10px;
-        
-        .medal-icon{
+
+        .medal-icon {
             // width: 100px;
         }
-        .editor-choice,.description{
+
+        .editor-choice,
+        .description {
             font-size: small;
             color: gray;
         }
-        .profile-title{
+
+        .profile-title {
             color: gray;
             bottom: 5px;
             left: 5px;
             position: relative;
         }
-        .icon{
+
+        .icon {
             float: right;
             right: 0;
             position: relative;
-            svg{
+
+            svg {
                 fill: gray;
             }
         }
-       
+
     }
 }

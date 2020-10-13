@@ -10,7 +10,7 @@ export default function ImageComponent() {
       {/* <div className="image-container">
         <Image src={photoLink} />
       </div> */}
-      <ANewsContainer></ANewsContainer>
+      <ANewsContainer content={false}></ANewsContainer>
     </div>
   );
 }

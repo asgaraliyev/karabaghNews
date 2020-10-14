@@ -4,7 +4,7 @@ export default function Content() {
   return (
     <div className="side">
       <div className="content">
-        <h4>15 Top Places in the World</h4>
+        <h5>15 Top Places in the World</h5>
         <br></br>
         <p className="description">
           The world is filled with such a wide variety of wonderful destinations

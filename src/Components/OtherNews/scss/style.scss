@@ -1,6 +1,7 @@
 // OtherNews scss
 #other-news {
     .child-other-news {
+        padding-top: 20px;
         position: relative;
         background-color: #F2F2F2;
         width: 100%;
@@ -54,7 +55,7 @@
                             padding: 10px;
 
                             .description {
-                                font-size: small;
+                                font-size: x-small;
                                 color: #434343;
                             }
 

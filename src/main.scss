@@ -8,7 +8,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
 * {
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
 }
 
 #app {
@@ -47,3 +49,6 @@
     transition: opacity 1s;
 }
 
+.hidden{
+    overflow: hidden;
+}

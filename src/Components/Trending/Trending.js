@@ -11,31 +11,28 @@ export default class Trending extends Component {
       infinite: true,
       speed: 3000,
       slidesToShow: 5,
-      slidesToScroll: 5,
+      slidesToScroll: 1,
       arrows: false,
       autoplay: true,
-      autoplaySpeed: 9000,
+      autoplaySpeed: 3000,
       pauseOnHover: true,
       responsive: [
         {
           breakpoint: 470,
           settings: {
             slidesToShow: 2,
-            slidesToScroll: 2,
           },
         },
         {
           breakpoint: 700,
           settings: {
             slidesToShow: 3,
-            slidesToScroll: 3,
           },
         },
         {
           breakpoint: 900,
           settings: {
             slidesToShow: 4,
-            slidesToScroll: 4,
           },
         }
       ],

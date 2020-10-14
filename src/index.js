@@ -3,11 +3,9 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
-import {createStore} from 'redux'
-import {allReducers} from './Redux/Reducers/index'
-const store = createStore(allReducers,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+import SuperMarket from './Redux/SuperMarket/SuperMarket'
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider store={SuperMarket}>
     <React.StrictMode>
       <App />
     </React.StrictMode>

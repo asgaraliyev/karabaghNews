@@ -1,8 +1,25 @@
-
 .news-container {
     width: 100%;
     height: 100%;
     position: relative;
+
+    &:hover {
+
+        .for-width {
+
+            img {
+                transition: 1s ease all !important;
+                width: 120% !important;
+            }
+        }
+        .for-height {
+
+            img {
+                transition: 1s ease all !important;
+                height: 120% !important;
+            }
+        }
+    }
 
     .image-container,
     .content-container {
@@ -17,10 +34,12 @@
 
     .image-container {
         z-index: 1;
-        div{
-            height: 100%!important;
+
+        div {
+            height: 100% !important;
             // background: #666666 !important;
         }
+
         div,
         img {
             padding: 0px !important;
@@ -40,12 +59,14 @@
         height: 100%;
         background: rgb(0, 0, 0);
         background: linear-gradient(0deg, rgba(0, 0, 0, 0.7540229885057471) 25%, rgba(0, 0, 0, 0) 100%);
+
         .content {
             position: absolute;
             bottom: 0;
             padding: 10px;
             color: white;
-            p{
+
+            p {
                 font-size: x-small;
                 margin-top: 5px;
                 color: white;

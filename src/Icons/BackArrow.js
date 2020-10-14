@@ -12,8 +12,9 @@ export default function BackArrow(props) {
       xmlSpace="preserve"
       width={width}
       height={height}
-      fill={fill}
       className={classNamee}
+      fill={fill}
+
     >
       <path d="M384 170.667L81.707 170.667 158.187 94.187 128 64 0 192 128 320 158.187 289.813 81.707 213.333 384 213.333z"></path>
     </svg>

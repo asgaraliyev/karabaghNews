@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Drawer from "@material-ui/core/Drawer";
+
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import CloseIcon from "@material-ui/icons/Close";
@@ -12,7 +13,7 @@ import Image from "material-ui-image";
 import Logo from "../../Images/logo.jpg";
 import { change_The_Link } from "../../Config/ChangingLink/ChangeLink";
 export default function DrawerMenu(props) {
-  const { amIOpen } = props;
+  var { amIOpen } = props;
   const dispatch = useDispatch();
   const catagories = useSelector((state) => state.catagories);
   const moreCatagories = useSelector((state) => state.moreCatagories);
@@ -20,6 +21,7 @@ export default function DrawerMenu(props) {
     ls.set("theDrawer", false);
     dispatch(change_Menu_Stuation_Action());
   };
+
   function catagory_Changed(catalog) {
     const theLinkWillBe = window.location.origin + "/catagory/" + catalog;
     change_The_Link(theLinkWillBe);

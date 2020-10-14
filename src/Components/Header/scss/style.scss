@@ -1,46 +1,58 @@
 // Header SCSS
 $black:#111111;
 $pink:#FF004E;
-body{
-}
-header{
+
+body {}
+
+header {
     width: 100%;
     height: 50px;
     display: flex;
     justify-content: space-around;
-    align-items:center;
+    align-items: center;
+
     // background: gray;
-    .side{
+    .side {
         height: 100%;
         // background: yellow;
         // margin: 0px 1px;
     }
-    .left,.right{
+
+    .left,
+    .right {
         flex: 1;
     }
-    .center{
+
+    .center {
         flex: 14;
         display: flex;
         justify-content: center;
         align-items: center;
-        h2{
+
+        h2 {
             font-size: medium;
         }
     }
-    .left{
+
+    .left {
         display: flex;
         justify-content: center;
         align-items: center;
-        .icon{
+
+        .icon {
             width: 25px;
             fill: $black;
         }
-        .menu-by-red-cirlce{
+
+      
+
+        .menu-by-red-cirlce {
             position: relative;
-            span{
+
+            span {
                 width: 10px;
                 height: 10px;
-                background:$pink;
+                background: $pink;
                 position: absolute;
                 top: 0;
                 right: 0;
@@ -54,16 +66,19 @@ header{
             }
         }
     }
-    .right{
+
+    .right {
         display: flex;
         justify-content: center;
         align-items: center;
-        .search-by-red-cirlce{
+
+        .search-by-red-cirlce {
             position: relative;
-                .search-icon{
-                    width: 20px;
-                    fill: $black;
-                }
+
+            .search-icon {
+                width: 20px;
+                fill: $black;
+            }
         }
     }
 }

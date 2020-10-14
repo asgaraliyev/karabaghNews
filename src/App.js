@@ -6,13 +6,14 @@ import SearchPage from "./Screens/SearchPage/SearchPage";
 import ACatagory from "./Screens/ACatagory/ACatagory";
 import ANews from "./Screens/aNews/ANews";
 import "./main.scss";
+import ls from "local-storage";
 import History from "./Config/History/RouterHistory";
 import { useSelector, useDispatch } from "react-redux";
 import DrawerMenu from "./Components/Drawer/DrawerMenu";
 // import { change_Menu_Stuation_Action } from "./Redux/Actions/index";
 
 function App() {
-  const theMenu = useSelector((state) => state.theMenu.menuIsOpen);
+  var theMenu = useSelector((state) => state.theMenu.menuIsOpen);
 
   if (theMenu) {
     document.body.classList.add("hidden");
@@ -20,8 +21,9 @@ function App() {
     document.body.classList.remove("hidden");
   }
 
-
-
+  if (ls.get("theDrawer")) {
+    theMenu = true;
+  }
   return (
     <Router history={History}>
       <div id="app">
@@ -34,10 +36,10 @@ function App() {
             <Route exact path="/search">
               <SearchPage></SearchPage>
             </Route>
-            <Route exact path="/catagory/:catagoryName">
+            <Route exact path="/catagory/:catagoryName/">
               <ACatagory></ACatagory>
             </Route>
-            <Route exact path="/news">
+            <Route exact path="/news/:newsName">
               <ANews></ANews>
             </Route>
           </Switch>

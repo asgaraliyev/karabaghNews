@@ -1,0 +1,14 @@
+// adminpanel login scss
+#admin-panel-login{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    text-align: center;
+    padding: 3em;
+    box-sizing: border-box;
+    .list-item{
+        width: 200px;
+        height: 200px;
+        position: relative;
+    }
+}

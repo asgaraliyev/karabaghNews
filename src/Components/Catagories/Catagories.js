@@ -49,7 +49,7 @@ export default function Catagories() {
       <Slider {...Slider_Settings}>
         {catagories.map((catalog) => {
           return (
-            <div className="slider-item">
+            <div className="slider-item" key={catalog}>
               <h3
                 className="title"
                 key={catalog}

@@ -14,9 +14,9 @@ export default function Header(props) {
   };
   const dispatch = useDispatch();
   const { type, title, classNamee, lightContent } = props.info;
-  const change_Menu_Stuation = () => {
+  const change_Menu_Stuation = (whichOne) => {
     ls.set("theDrawer", true);
-    dispatch(change_Menu_Stuation_Action());
+    dispatch(change_Menu_Stuation_Action(whichOne));
   };
   var backArrowClassName = "icon";
   var titleClassName = "";
@@ -29,7 +29,7 @@ export default function Header(props) {
     <header className={classNamee}>
       <div className="side left">
         {type === "home" ? (
-          <div className="menu-by-red-cirlce" onClick={change_Menu_Stuation}>
+          <div className="menu-by-red-cirlce" onClick={()=>change_Menu_Stuation("MENU")}>
             <MenuIcon
               info={{
                 classNamee: "icon",
@@ -52,7 +52,7 @@ export default function Header(props) {
       </div>
       <div className="side right">
         {type == "anews" ? null : (
-          <div className="search-by-red-cirlce">
+          <div className="search-by-red-cirlce" onClick={()=>change_Menu_Stuation("SEARCH")}>
             <SearchIcon
               info={{
                 classNamee: "search-icon",

@@ -5,11 +5,31 @@ import ANewsContainer from "../../Components/aNewsContainer/aNewsContainer";
 import { Typography } from "@material-ui/core";
 import "./scss/style.scss";
 import FacebookIcon from "@material-ui/icons/Facebook";
-import TwitterIcon from '@material-ui/icons/Twitter';
-import InstagramIcon from '@material-ui/icons/Instagram';
+import TwitterIcon from "@material-ui/icons/Twitter";
+import InstagramIcon from "@material-ui/icons/Instagram";
 import ReactPlayer from "react-player";
+import { useMediaQuery } from "react-responsive";
+import Trending from "../../Components/Trending/Trending";
 export default function ANews() {
   var { newsName } = useParams();
+  const moreThansixhundred = useMediaQuery({ query: "(min-width: 600px)" });
+  const moreThanOneThousand = useMediaQuery({ query: "(min-width: 1000px)" });
+  console.log("ANews -> moreThansixhundred", moreThansixhundred);
+  var widthOfNewsContainer,
+    heightofNewsContainer,
+    widthOfYouTubeVideo = "80vw",
+    heightOfYouTubeVideo = "40vw";
+  if (moreThanOneThousand) {
+    widthOfYouTubeVideo = "40vw";
+    heightOfYouTubeVideo = "20vw";
+    widthOfNewsContainer = true;
+  } else if (moreThansixhundred) {
+    widthOfYouTubeVideo = "60vw";
+    heightOfYouTubeVideo = "30vw";
+    widthOfNewsContainer = true;
+  } else {
+    heightofNewsContainer = true;
+  }
 
   return (
     <div id="a-news">
@@ -25,7 +45,8 @@ export default function ANews() {
         <div className="expand">
           <div className="image-side">
             <ANewsContainer
-              height={true}
+              height={heightofNewsContainer}
+              width={widthOfNewsContainer}
               content={false}
               imageLink="https://jewishjournal.com/wp-content/uploads/2019/02/IMG_9311.jpg"
             ></ANewsContainer>
@@ -51,8 +72,8 @@ export default function ANews() {
                 <br></br>
                 <ReactPlayer
                   url="https://youtu.be/wB80aA3hnEM"
-                  width="80vw"
-                  height="40vw"
+                  width={widthOfYouTubeVideo}
+                  height={heightOfYouTubeVideo}
                 />
                 <br></br>
 
@@ -87,6 +108,10 @@ export default function ANews() {
                       <span className="the-text">Instagram</span>
                     </div>
                   </div>
+                  <br></br>
+                  <h3>Related Posts</h3>
+                  <Trending></Trending>
+                  <Trending></Trending>
                 </div>
               </div>
             </div>

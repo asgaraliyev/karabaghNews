@@ -4,6 +4,8 @@ import Store from "../../../../../Redux/SuperMarket/SuperMarket";
 import Dashboard from "../Components/Dashboard";
 import Posts from "../Components/Posts";
 import Catagories from "../Components/Catagories";
+import {UncontrolledEditor} from "../Components/AddPost";
+import "./scss/style.scss"
 function DashboardComponent() {
   return (
     <>
@@ -18,6 +20,13 @@ function PostsComponent() {
     </>
   );
 }
+function AddPostsComponent() {
+  return (
+    <>
+      <UncontrolledEditor></UncontrolledEditor>
+    </>
+  );
+}
 function CatagoriesComponent() {
   return (
     <>
@@ -29,7 +38,7 @@ export default class ContentSideA extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      component: "dashboard",
+      component: "posts",
     };
   }
   componentDidMount() {
@@ -39,8 +48,10 @@ export default class ContentSideA extends Component {
         component = PostsComponent();
       } else if (Store.getState().dashboardContent === "catagories") {
         component = CatagoriesComponent();
+      } else if (Store.getState().dashboardContent === "addpost") {
+        component = AddPostsComponent();
       } else {
-        component = DashboardComponent();
+        component = AddPostsComponent();
       }
       this.setState(
         (this.state = {

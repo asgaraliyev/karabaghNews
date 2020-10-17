@@ -11,6 +11,6 @@ var firebaseConfig = {
 };
 
 
-var app = firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 
-export default app;
+export default firebase;

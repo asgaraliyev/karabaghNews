@@ -8,10 +8,10 @@ const initialState = [
   "Business",
 ];
 
-export const Catagories=(state=initialState,action)=>{
-  if(action.type=="CHANGE_CATAGRIES"){
-    return state;
-  }else{
+export const Catagories = (state = initialState, action) => {
+  if (action.type == "CHANGE_CATAGORIES") {
+    return action.data;
+  } else {
     return state;
   }
-}
+};

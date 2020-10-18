@@ -5,17 +5,18 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {change_The_Link} from '../../Config/ChangingLink/ChangeLink'
 import { useSelector, useDispatch } from "react-redux";
+
 export default function Catagories() {
   const catagories = useSelector((state) => state.catagories);
   const Slider_Settings = {
     dost: false,
     infinite: true,
-    speed: 2000,
+    speed: 1000,
     slidesToShow: 7,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 5000,
     pauseOnHover: true,
     rtl: true,
     responsive: [
@@ -39,10 +40,12 @@ export default function Catagories() {
       },
     ],
   };
+
   function catagory_Changed(catalog) {
     const theLinkWillBe = window.location.origin + "/catagory/" + catalog;
     change_The_Link(theLinkWillBe)
   }
+ 
   return (
     <div id="slider">
       <br></br>

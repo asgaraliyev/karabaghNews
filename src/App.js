@@ -21,6 +21,7 @@ import Dashboard from "./Screens/AdminPanel/Dashboard/Dashboard";
 // import { change_Firebase_Action } from "./Redux/Actions/index";
 // import SuperMarket from "./Redux/SuperMarket/SuperMarket";
 import TheDialog from "./Screens/AdminPanel/Dashboard/Components/Components/DialogForContents";
+
 function App() {
   var theMenu = useSelector((state) => state.theMenu.menuIsOpen);
   const dispatch = useDispatch();
@@ -41,7 +42,6 @@ function App() {
       setUser(false);
     }
   });
-
   return (
     <Router history={History}>
       <div id="app">

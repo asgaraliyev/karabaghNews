@@ -7,6 +7,7 @@ import "./scss/style.scss";
 import SecondNews from "./SecondNews/SecondNews";
 import Trending from "../../Components/Trending/Trending";
 import OtherNews from "../../Components/OtherNews/OtherNews";
+
 export default function ACatagory() {
   const catagories = useSelector((state) => state.catagories);
   var { catagoryName } = useParams();

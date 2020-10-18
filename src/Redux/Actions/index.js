@@ -30,3 +30,9 @@ export const add_Post_Action = (content) => {
     data: content,
   };
 };
+export const change_Catagories = (content) => {
+  return {
+    type: "CHANGE_CATAGORIES",
+    data: content,
+  };
+};

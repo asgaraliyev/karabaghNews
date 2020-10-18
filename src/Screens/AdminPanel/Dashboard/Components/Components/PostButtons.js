@@ -1,15 +1,23 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { change_Dashboard_Contente_action } from "../../../../../Redux/Actions/index";
+import { change_Dialog_Content_Action } from "../../../../../Redux/Actions/index";
+import {Button } from "antd";
 export default function PostButtons() {
   const dispatch = useDispatch();
 
   function addPostComponent() {
-    dispatch(change_Dashboard_Contente_action("addpost"))
+    // dispatch(change_Dashboard_Contente_action("addpost"));
+    var info = {
+      data: {
+        isDialogOpen: true,
+        dialogComponentName: "addPostComponent",
+      },
+    };
+    dispatch(change_Dialog_Content_Action(info));
   }
   return (
     <>
-      <button onClick={addPostComponent}>Add Post</button>
+      <Button onClick={addPostComponent}>Add Post</Button>
     </>
   );
 }

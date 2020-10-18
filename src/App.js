@@ -18,8 +18,9 @@ import { useSelector, useDispatch } from "react-redux";
 import DrawerMenu from "./Components/Drawer/DrawerMenu";
 import AdminLogin from "./Screens/AdminPanel/AdminLogin/AdminLogin";
 import Dashboard from "./Screens/AdminPanel/Dashboard/Dashboard";
-import { change_Firebase_Action } from "./Redux/Actions/index";
-import SuperMarket from "./Redux/SuperMarket/SuperMarket";
+// import { change_Firebase_Action } from "./Redux/Actions/index";
+// import SuperMarket from "./Redux/SuperMarket/SuperMarket";
+import TheDialog from "./Screens/AdminPanel/Dashboard/Components/Components/DialogForContents";
 function App() {
   var theMenu = useSelector((state) => state.theMenu.menuIsOpen);
   const dispatch = useDispatch();
@@ -45,6 +46,7 @@ function App() {
     <Router history={History}>
       <div id="app">
         <DrawerMenu amIOpen={theMenu}></DrawerMenu>
+        <TheDialog ></TheDialog>
         <main>
           <Switch>
             <Route exact path="/">
@@ -74,7 +76,7 @@ function App() {
 
 // screen if you're not yet authenticated.
 function PrivateRoute({ children, user, ...rest }) {
-  if ( user == null) {
+  if (user == null) {
     return (
       <div>
         <h1>Loading...</h1>

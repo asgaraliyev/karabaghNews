@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { List, ListItem } from "@material-ui/core";
 import firebase from "firebase";
 import "firebase/firestore";
-
+import "antd/dist/antd.css";
+import {Button } from "antd";
 import DataTable from "./MaterialUiTable";
 import PostButtons from "./PostButtons";
 export default class Posts extends Component {
@@ -42,9 +43,12 @@ export default class Posts extends Component {
     return (
       <>
         <PostButtons></PostButtons>
-        <br></br>
-        <br></br>
-        <br></br>
+  
+        <Button onClick={()=>{
+          this.getData()
+        }}>Refresh</Button>
+
+
         <DataTable data={this.state.listOfPosts}></DataTable>
       </>
     );

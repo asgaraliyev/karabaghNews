@@ -1,6 +1,22 @@
-#padding-for-editor{
+#padding-for-editor {
     padding: 5em;
     box-sizing: border-box;
-    width:100%;
-    background:rgb(240, 240, 240);
+    width: 100%;
+    background: rgb(240, 240, 240);
+    overflow: auto;
+
+    .rdw-editor-main {
+        height: 50vh !important;
+    }
+
+    .text-field {
+        margin: 1em;
+
+    }
+    
+}
+.ant-btn{
+    margin: 1em;
+    display: inline-block;
+    float: left;
 }

@@ -1,11 +1,12 @@
 // import * as React from "react";
 // import { Component } from "react";
 // import { DataGrid, ColDef, ValueGetterParams } from "@material-ui/data-grid";
-
+import * as firebase from "firebase";
+import "firebase/firestore";
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import "antd/dist/antd.css";
-import { Table, Radio, Divider } from "antd";
+import { Table, Radio, Divider, Button } from "antd";
 const columns = [
   {
     title: "id",
@@ -14,6 +15,10 @@ const columns = [
   {
     title: "title",
     dataIndex: "title",
+  },
+  {
+    title: "link",
+    dataIndex: "link",
   },
   {
     title: "catagory",
@@ -28,35 +33,50 @@ const columns = [
     dataIndex: "date",
   },
 ];
- // rowSelection object indicates the need for row selection
-
-const rowSelection = {
-  onChange: (selectedRowKeys, selectedRows) => {
-    console.log(
-      `selectedRowKeys: ${selectedRowKeys}`,
-      "selectedRows: ",
-      selectedRows
-    );
-  },
-};
+// rowSelection object indicates the need for row selection
 
 const Demo = (props) => {
   var list = [];
+  const [selected, setSelected] = useState([]);
+  const rowSelection = {
+    onChange: (selectedRowKeys, selectedRows) => {
+      setSelected(selectedRows);
+    },
+  };
+
   props.data.map((item) => {
     var info = {
       id: item.id,
       key: item.id,
       title: item.data.title,
+      link: item.data.link,
       catagory: item.data.catagory,
       author: item.data.author,
       date: String(item.date),
     };
     list.push(info);
-
-    
   });
+  const deleteHandler = () => {
+    const db = firebase.firestore();
+    selected.map((row) => {
+      var result = window.confirm("are you sure delete " + row.title + " post?");
+      if (result) {
+        db.collection("posts")
+          .doc(row.id)
+          .delete()
+          .then(function () {
+            console.log("Document successfully deleted!");
+          })
+          .catch(function (error) {
+            console.error("Error removing document: ", error);
+          });
+      }
+    });
+  };
   return (
     <div>
+      <Button danger onClick={deleteHandler}>Delete</Button>
+      {/* <Button onClick={editHandler}>Edit</Button> */}
       <Table
         rowSelection={{
           ...rowSelection,

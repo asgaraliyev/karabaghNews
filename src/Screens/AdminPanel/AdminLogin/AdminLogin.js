@@ -14,7 +14,6 @@ import firebase from "../../../Firebase";
 import * as firebaseui from "firebaseui";
 export default class AdminLogin extends Component {
   componentDidMount() {
-    console.log(firebase.auth().PhoneAuthProvider);
     const uiConfig = {
       signInSuccessUrl: window.location.origin + "/admin-panel",
       signInOptions: [firebase.auth.PhoneAuthProvider.PROVIDER_ID],

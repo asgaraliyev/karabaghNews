@@ -6,6 +6,7 @@ import "firebase/firestore";
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import "antd/dist/antd.css";
+import Image from "material-ui-image";
 import { Table, Radio, Divider, Button } from "antd";
 const columns = [
   {
@@ -17,7 +18,13 @@ const columns = [
     dataIndex: "title",
   },
   {
+    title: "Image",
+    dataIndex: "image",
+    render: (text) => <Image src={text} aspectRatio={16 / 9}></Image>,
+  },
+  {
     title: "link",
+    render: (text) => <a href={`${window.location.origin}/news/${text}`} >{text}</a>,
     dataIndex: "link",
   },
   {
@@ -49,6 +56,7 @@ const Demo = (props) => {
       id: item.id,
       key: item.id,
       title: item.data.title,
+      image: item.data.image,
       link: item.data.link,
       catagory: item.data.catagory,
       author: item.data.author,
@@ -59,7 +67,9 @@ const Demo = (props) => {
   const deleteHandler = () => {
     const db = firebase.firestore();
     selected.map((row) => {
-      var result = window.confirm("are you sure delete " + row.title + " post?");
+      var result = window.confirm(
+        "are you sure delete " + row.title + " post?"
+      );
       if (result) {
         db.collection("posts")
           .doc(row.id)
@@ -75,7 +85,9 @@ const Demo = (props) => {
   };
   return (
     <div>
-      <Button danger onClick={deleteHandler}>Delete</Button>
+      <Button danger onClick={deleteHandler}>
+        Delete
+      </Button>
       {/* <Button onClick={editHandler}>Edit</Button> */}
       <Table
         rowSelection={{

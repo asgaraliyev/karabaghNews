@@ -5,14 +5,14 @@ import { Typography } from "@material-ui/core";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import { useSelector, useDispatch } from "react-redux";
-import { change_The_Link } from "../../Config/ChangingLink/ChangeLink";
-
+import { Link } from "react-router-dom";
+import { change_Menu_Stuation_Action } from "../../Redux/Actions/index";
 export default function Menu() {
   const catagories = useSelector((state) => state.catagories);
   const moreCatagories = useSelector((state) => state.moreCatagories);
-  function catagory_Changed(catalog) {
-    const theLinkWillBe = window.location.origin + "/catagory/" + catalog;
-    change_The_Link(theLinkWillBe);
+  const dispatch = useDispatch();
+  function catagory_Changed() {
+    dispatch(change_Menu_Stuation_Action("MENU"));
   }
   return (
     <>
@@ -23,7 +23,9 @@ export default function Menu() {
       <List>
         {catagories.map((text, index) => (
           <ListItem onClick={() => catagory_Changed(text)} button key={text}>
-            <h3>{text}</h3>
+            <Link to={`/catagory/${text}`}>
+              <h3>{text}</h3>
+            </Link>
           </ListItem>
         ))}
       </List>

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Header from "../../Components/Header/Header";
 import ANewsContainer from "../../Components/aNewsContainer/aNewsContainer";
@@ -10,11 +10,11 @@ import InstagramIcon from "@material-ui/icons/Instagram";
 import ReactPlayer from "react-player";
 import { useMediaQuery } from "react-responsive";
 import Trending from "../../Components/Trending/Trending";
+import GettingAPosts from "../../Functions/GettingAPosts";
 export default function ANews() {
   var { newsName } = useParams();
   const moreThansixhundred = useMediaQuery({ query: "(min-width: 600px)" });
   const moreThanOneThousand = useMediaQuery({ query: "(min-width: 1000px)" });
-  console.log("ANews -> moreThansixhundred", moreThansixhundred);
   var widthOfNewsContainer,
     heightofNewsContainer,
     widthOfYouTubeVideo = "80vw",
@@ -30,13 +30,36 @@ export default function ANews() {
   } else {
     heightofNewsContainer = true;
   }
+  var thePost = {
+    key: "Loading...",
+    author: "",
+    body: "",
+    catagory: "",
+    image:
+      "https://i.pinimg.com/originals/1a/e0/90/1ae090fce667925b01954c2eb72308b6.gif",
+    time: "",
+    title: "Loading..",
+    link: "",
+  };
+
+  const [theNews, setTheNews] = useState(thePost);
+
+  useEffect(() => {
+    GettingAPosts(newsName).then((response) => {
+      console.log(response.data);
+      console.log(thePost);
+      if (response.success) {
+        setTheNews(response.data);
+      }
+    });
+  }, []);
 
   return (
     <div id="a-news">
       <Header
         info={{
           type: "anews",
-          title: "catagoryName",
+          title: theNews.catagory,
           classNamee: "zIndex",
           lightContent: true,
         }}
@@ -48,29 +71,22 @@ export default function ANews() {
               height={heightofNewsContainer}
               width={widthOfNewsContainer}
               content={false}
-              imageLink="https://jewishjournal.com/wp-content/uploads/2019/02/IMG_9311.jpg"
+              imageLink={theNews.image}
             ></ANewsContainer>
             <div className="curtain"></div>
           </div>
           <div className="news-content-side">
             <div className="to-top">
               <div className="to-expand">
-                <h2>‘Khojaly genocide one of darkest pages in 20th century’</h2>
+                <h2>{theNews.title}</h2>
                 <br></br>
                 <Typography>
-                  Armenians who lived side-by-side with Azerbaijanis, turned
-                  against neighbors, committed 'genocide', says Azerbaijani
-                  envoy The "genocide" committed in 1992 against hundreds of
-                  Azerbaijanis by Armenians was one of the darkest pages in the
-                  history of the 20th century, Azerbaijan’s envoy to Turkey
-                  said. Marking the 28th anniversary of the Khojaly Massacre,
-                  Khazar Ibrahim, in an interview with Anadolu Agency, said that
-                  the tragedy happened during the military aggression of Armenia
-                  against Azerbaijan, which started in the late 1980s in the
-                  final stages of the USSR.
+                  <div
+                    dangerouslySetInnerHTML={{ __html: `${theNews.body}` }}
+                  ></div>
                 </Typography>
                 <br></br>
-                <ReactPlayer
+                {/* <ReactPlayer
                   url="https://youtu.be/wB80aA3hnEM"
                   width={widthOfYouTubeVideo}
                   height={heightOfYouTubeVideo}
@@ -83,7 +99,7 @@ export default function ANews() {
                   Elderly people, women, kids, babies were killed, maimed and
                   taken hostages, and the fate of most of them are still not
                   known until today," he said.
-                </Typography>
+                </Typography> */}
                 <br></br>
                 <div id="social-media-for-a-post">
                   <h3>Share this post</h3>

@@ -1,19 +1,33 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import Header from "../../Components/Header/Header";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import FullWidthNews from "./FullWidthNews/FullWidthNews";
 import "./scss/style.scss";
 import SecondNews from "./SecondNews/SecondNews";
 import Trending from "../../Components/Trending/Trending";
 import OtherNews from "../../Components/OtherNews/OtherNews";
+import { change_Catagories } from "../../Redux/Actions/";
+import GettingCatagories from "../../Functions/GettingCatagories";
+import GettingCatagoryPosts from "../../Functions/GettingCatagoryPosts";
 
 export default function ACatagory() {
   const catagories = useSelector((state) => state.catagories);
+  const [cPosts, setCPosts] = useState([]);
   var { catagoryName } = useParams();
-  if (!catagories.includes(catagoryName)) {
-    catagoryName = catagories[0];
-  }
+  const dispatch = useDispatch();
+  useEffect(() => {
+    GettingCatagories().then((result) => {
+      dispatch(change_Catagories(result));
+      if (!catagories.includes(catagoryName)) {
+        catagoryName = catagories[0];
+      }
+    });
+    GettingCatagoryPosts(catagoryName).then((cPosts) => {
+      setCPosts(cPosts);
+    });
+  }, []);
+
   return (
     <div>
       <Header
@@ -47,7 +61,7 @@ export default function ACatagory() {
 
       <br></br>
       <br></br>
-      <OtherNews></OtherNews>
+      <OtherNews posts={cPosts}></OtherNews>
     </div>
   );
 }

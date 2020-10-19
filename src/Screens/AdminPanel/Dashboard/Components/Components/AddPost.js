@@ -12,6 +12,12 @@ import { Upload, message } from "antd";
 import { InboxOutlined } from "@ant-design/icons";
 import Chance from "chance";
 import "antd/dist/antd.css";
+import { notification, Progress } from "antd";
+const openNotificationWithIcon = (info) => {
+  notification[info.type]({
+    message: info.title,
+  });
+};
 const chance = new Chance();
 const { Dragger } = Upload;
 
@@ -59,21 +65,18 @@ export class UncontrolledEditor extends Component {
     const self = this;
     const props = {
       name: "file",
-      multiple: true,
-      action: "https://www.mocky.io/v2/5cc8019d300000980a055e76",
+      multiple: false,
+      action: self.state.image,
       onChange(info) {
-        const { status } = info.file;
-        if (status !== "uploading") {
+        if (info.file.status === "error") {
           try {
-            const file = info.fileList[0].originFileObj;
-            console.log("onChange -> file", file);
+            const file = info.file.originFileObj;
             var randomName;
             if (self.state.link !== "") {
               randomName = self.state.link;
             } else {
               randomName = chance.android_id();
             }
-            console.log(randomName);
             var storageRef = firebase.storage().ref();
             var uploadTask = storageRef
               .child("postTitles/" + randomName)
@@ -85,13 +88,15 @@ export class UncontrolledEditor extends Component {
                 // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
                 var progress =
                   (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                console.log("Upload is " + progress + "% done");
+                self.setState(
+                  (this.state = {
+                    progressNumber: Math.floor(progress),
+                  })
+                );
                 switch (snapshot.state) {
                   case firebase.storage.TaskState.PAUSED: // or 'paused'
-                    console.log("Upload is paused");
                     break;
                   case firebase.storage.TaskState.RUNNING: // or 'running'
-                    console.log("Upload is running");
                     break;
                 }
               },
@@ -104,6 +109,10 @@ export class UncontrolledEditor extends Component {
                 uploadTask.snapshot.ref
                   .getDownloadURL()
                   .then(function (downloadURL) {
+                    openNotificationWithIcon({
+                      type: "success",
+                      title: "Photo is uploaded !",
+                    });
                     self.setState(
                       (self.state = {
                         image: downloadURL,
@@ -117,14 +126,7 @@ export class UncontrolledEditor extends Component {
               "UncontrolledEditor -> onChange -> uploadUrl",
               uploadUrl
             );
-          } catch (error) {
-            console.log("UncontrolledEditor -> onChange -> error", error);
-          }
-        }
-        if (status === "done") {
-          message.success(`${info.file.name} file uploaded successfully.`);
-        } else if (status === "error") {
-          message.error(`${info.file.name} file upload failed.`);
+          } catch (error) {}
         }
       },
     };
@@ -214,6 +216,9 @@ export class UncontrolledEditor extends Component {
     return (
       <div id="padding-for-editor">
         <List>
+          {this.state.progressNumber ? (
+            <Progress percent={this.state.progressNumber} />
+          ) : null}
           <Dragger {...props}>
             <p className="ant-upload-drag-icon">
               <InboxOutlined />

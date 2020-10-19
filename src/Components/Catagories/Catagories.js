@@ -1,13 +1,22 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import Slider from "react-slick";
 import "./scss/style.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import {change_The_Link} from '../../Config/ChangingLink/ChangeLink'
 import { useSelector, useDispatch } from "react-redux";
+import GettingCatagories from "../../Functions/GettingCatagories";
+import { change_Catagories } from "../../Redux/Actions/";
 
+
+import { Link } from "react-router-dom";
 export default function Catagories() {
-  const catagories = useSelector((state) => state.catagories);
+  const catagoriesRedux = useSelector((state) => state.catagories);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    GettingCatagories().then((result) => {
+      dispatch(change_Catagories(result));
+    });
+  }, []);
   const Slider_Settings = {
     dost: false,
     infinite: true,
@@ -43,23 +52,24 @@ export default function Catagories() {
 
   function catagory_Changed(catalog) {
     const theLinkWillBe = window.location.origin + "/catagory/" + catalog;
-    change_The_Link(theLinkWillBe)
   }
- 
+
   return (
     <div id="slider">
       <br></br>
       <Slider {...Slider_Settings}>
-        {catagories.map((catalog) => {
+        {catagoriesRedux.map((catalog) => {
           return (
             <div className="slider-item" key={catalog}>
-              <h3
-                className="title"
-                key={catalog}
-                onMouseUp={() => catagory_Changed(catalog)}
-              >
-                {catalog}
-              </h3>
+              <Link to={`/catagory/${catalog}`}>
+                <h3
+                  className="title"
+                  key={catalog}
+                  onClick={() => catagory_Changed(catalog)}
+                >
+                  {catalog}
+                </h3>
+              </Link>
             </div>
           );
         })}

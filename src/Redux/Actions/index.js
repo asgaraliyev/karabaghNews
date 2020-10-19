@@ -36,3 +36,9 @@ export const change_Catagories = (content) => {
     data: content,
   };
 };
+export const add_New_Catagory_Action = (content) => {
+  return {
+    type: "ADD_NEW_CATAGORY",
+    data: content,
+  };
+};

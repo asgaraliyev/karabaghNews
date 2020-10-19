@@ -2,7 +2,6 @@ import React, { Component, useEffect } from "react";
 import "./scss/style.scss";
 import MenuIcon from "../../Icons/MenuIcon";
 // import { Colors } from "../../Config/Colors";
-import ls from "local-storage";
 import SearchIcon from "../../Icons/SearchIcon";
 import BackArrow from "../../Icons/BackArrow";
 import History from "../../Config/History/RouterHistory";
@@ -15,7 +14,6 @@ export default function Header(props) {
   const dispatch = useDispatch();
   const { type, title, classNamee, lightContent } = props.info;
   const change_Menu_Stuation = (whichOne) => {
-    ls.set("theDrawer", true);
     dispatch(change_Menu_Stuation_Action(whichOne));
   };
   var backArrowClassName = "icon";

@@ -15,6 +15,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import addPostFunction from "./Functions/AddPostFunction";
+import AddOrDeleteCatagoryFunction from "./Functions/AddOrDeleteCatagoryFunction";
 import AddCatagory from "./AddCatagory";
 export default function FullScreenDialog() {
   var dialogReducerSelector = useSelector((state) => state.dialogReducer);
@@ -32,10 +33,14 @@ export default function FullScreenDialog() {
     dispatch(change_Dialog_Content_Action(info));
   };
   const dialogComponentName = dialogReducerSelector.dialogComponentName;
-  var theComponentItSelf;
+  var theComponentItSelf, questionForSmallDialog, saveBtnFunction;
   var title = "Something went wrong here ...Sorry :(";
   if (dialogComponentName === "addPostComponent") {
     title = "add a new post";
+    questionForSmallDialog = "   Are you sure about saving this post?";
+  } else if (dialogComponentName === "addCatagoryComponent") {
+    title = "add a new catagory";
+    questionForSmallDialog = "   Are you sure about saving this catagory?";
   }
   return (
     <div>
@@ -89,13 +94,9 @@ export default function FullScreenDialog() {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {"Are you sure about saving this post?"}
+          {questionForSmallDialog}
         </DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            Are you sure about saving this post?
-          </DialogContentText>
-        </DialogContent>
+        <DialogContent></DialogContent>
         <DialogActions>
           <Button
             color="primary"
@@ -108,7 +109,14 @@ export default function FullScreenDialog() {
           <Button
             color="primary"
             onClick={() => {
-              addPostFunction();
+              if (dialogComponentName === "addPostComponent") {
+                addPostFunction();
+              } else if (dialogComponentName === "addCatagoryComponent") {
+                AddOrDeleteCatagoryFunction({
+                  type: "ADD",
+                  data: null,
+                });
+              }
             }}
             autoFocus
           >
@@ -120,15 +128,14 @@ export default function FullScreenDialog() {
   );
 }
 function TheComponent(props) {
-  console.log("TheComponent -> props", props);
-  if (props.dialogComponentName == "addPostComponent") {
+  if (props.componentName == "addPostComponent") {
     return (
       <UncontrolledEditor
         save={props.saveBtn}
         dispatch={props.dispatch}
       ></UncontrolledEditor>
     );
-  } else if (props.dialogComponentName == "addCatagoryComponent") {
+  } else if (props.componentName == "addCatagoryComponent") {
     return (
       <AddCatagory save={props.saveBtn} dispatch={props.dispatch}></AddCatagory>
     );

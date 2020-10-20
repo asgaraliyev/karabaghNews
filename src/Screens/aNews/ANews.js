@@ -50,6 +50,7 @@ export default function ANews() {
   const [relatedPosts, setRelatedPosts] = useState([]);
 
   useEffect(() => {
+    console.log("worked");
     GettingPosts().then((posts) => {
       posts.map((post) => {
         if (post.data.link === newsName) {
@@ -64,7 +65,7 @@ export default function ANews() {
         }
       });
     });
-  }, []);
+  }, [newsName]);
 
   return (
     <div id="a-news">

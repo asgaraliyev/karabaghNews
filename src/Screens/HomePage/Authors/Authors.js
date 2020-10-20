@@ -6,6 +6,7 @@ import "./scss/style.scss";
 import { makeStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
 import ReactTimeAgo from "react-time-ago";
+import { Link } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -68,24 +69,26 @@ export default function Authors({ posts }) {
             console.log("Authors -> post", post);
             return (
               <div className="author">
-                <span className="profile-photo">
-                  <div className={classes.root}>
-                    <Avatar
-                      alt={post.data.author}
-                      src={post.data.image}
-                      className={classes.large}
-                    />
-                  </div>
-                </span>
-                <span>
-                  <p>{post.data.author}</p>
-                  <h5>{post.data.title}</h5>
-                  <ReactTimeAgo
-                    date={post.date}
-                    locale="az-Az"
-                    timeStyle="round"
-                  ></ReactTimeAgo>
-                </span>
+                <Link to={`/news/${post.data.link}`}>
+                  <span className="profile-photo">
+                    <div className={classes.root}>
+                      <Avatar
+                        alt={post.data.author}
+                        src={post.data.image}
+                        className={classes.large}
+                      />
+                    </div>
+                  </span>
+                  <span>
+                    <p>{post.data.author}</p>
+                    <h5>{post.data.title}</h5>
+                    <ReactTimeAgo
+                      date={post.date}
+                      locale="az-Az"
+                      timeStyle="round"
+                    ></ReactTimeAgo>
+                  </span>
+                </Link>
               </div>
             );
           }

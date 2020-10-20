@@ -61,7 +61,7 @@ export default function ANews() {
               allRelatedPosts.push(altPost);
             }
           });
-          setRelatedPosts(allRelatedPosts)
+          setRelatedPosts(allRelatedPosts);
         }
       });
     });
@@ -90,7 +90,7 @@ export default function ANews() {
           </div>
           <div className="news-content-side">
             <div className="to-top">
-              <div className="to-expand">
+              <div className="to-expand" id="a-news-content">
                 <h2>{theNews.data.title}</h2>
                 <br></br>
                 <Typography>

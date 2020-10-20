@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "./scss/style.scss";
 import Image from "material-ui-image";
 import ReactTimeAgo from "react-time-ago";
-
+import { Link } from "react-router-dom";
 export default class Trending extends Component {
   constructor(props) {
     super(props);
@@ -67,24 +67,27 @@ export default class Trending extends Component {
           {posts.map((post) => {
             return (
               <div className="parent-card-item" key={post.data.link}>
-                <div className="card-item">
-                  <div className="image-container">
-                    <Image alt={post.data.link} src={post.data.image} />
-                  </div>
-                  <div className="info">
-                    <div className="info-container">
-                      <span className="news-title">{post.data.title}</span>
-                      <br></br>
-                      <span className="time">
-                        <ReactTimeAgo
-                          date={post.date}
-                          locale="az-Az"
-                          timeStyle="round"
-                        ></ReactTimeAgo>
-                      </span>
+                <Link to={`/news/${post.data.link}`}>
+                  {" "}
+                  <div className="card-item">
+                    <div className="image-container">
+                      <Image alt={post.data.link} src={post.data.image} />
+                    </div>
+                    <div className="info">
+                      <div className="info-container">
+                        <span className="news-title">{post.data.title}</span>
+                        <br></br>
+                        <span className="time">
+                          <ReactTimeAgo
+                            date={post.date}
+                            locale="az-Az"
+                            timeStyle="round"
+                          ></ReactTimeAgo>
+                        </span>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               </div>
             );
           })}

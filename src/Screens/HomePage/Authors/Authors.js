@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "./scss/style.scss";
 import { makeStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
+import ReactTimeAgo from "react-time-ago";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -45,7 +46,7 @@ const Slider_Settings = {
         slidesToShow: 2,
       },
     },
-    
+
     {
       breakpoint: 1000,
       settings: {
@@ -54,61 +55,41 @@ const Slider_Settings = {
     },
   ],
 };
-export default function Authors() {
+export default function Authors({ posts }) {
   const classes = useStyles();
   const profilePhotoLink =
     "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSStFBcu6lA7SmRZSdtUXP7dfRTcwPfSbyj4A&usqp=CAU";
+
   return (
     <div id="authors-slider">
       <Slider {...Slider_Settings}>
-        <div className="author">
-          <span className="profile-photo">
-            <div className={classes.root}>
-              <Avatar
-                alt="Remy Sharp"
-                src={profilePhotoLink}
-                className={classes.large}
-              />
-            </div>
-          </span>
-          <span>
-            <p>David Brooks</p>
-            <h5>Artificial Intelligence Can Save Your Life </h5>
-            <p>Jube 24, 2019</p>
-          </span>
-        </div>
-        <div className="author">
-          <span className="profile-photo">
-            <div className={classes.root}>
-              <Avatar
-                alt="Remy Sharp"
-                src={profilePhotoLink}
-                className={classes.large}
-              />
-            </div>
-          </span>
-          <span>
-            <p>David Brooks</p>
-            <h5>Artificial Intelligence Can Save Your Life </h5>
-            <p>Jube 24, 2019</p>
-          </span>
-        </div>
-        <div className="author">
-          <span className="profile-photo">
-            <div className={classes.root}>
-              <Avatar
-                alt="Remy Sharp"
-                src={profilePhotoLink}
-                className={classes.large}
-              />
-            </div>
-          </span>
-          <span>
-            <p>David Brooks</p>
-            <h5>Artificial Intelligence Can Save Your Life </h5>
-            <p>Jube 24, 2019</p>
-          </span>
-        </div>
+        {posts.map((post) => {
+          if (post.data.isAuthor) {
+            console.log("Authors -> post", post);
+            return (
+              <div className="author">
+                <span className="profile-photo">
+                  <div className={classes.root}>
+                    <Avatar
+                      alt={post.data.author}
+                      src={post.data.image}
+                      className={classes.large}
+                    />
+                  </div>
+                </span>
+                <span>
+                  <p>{post.data.author}</p>
+                  <h5>{post.data.title}</h5>
+                  <ReactTimeAgo
+                    date={post.date}
+                    locale="az-Az"
+                    timeStyle="round"
+                  ></ReactTimeAgo>
+                </span>
+              </div>
+            );
+          }
+        })}
       </Slider>
     </div>
   );

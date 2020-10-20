@@ -8,7 +8,7 @@ import "firebase/firestore";
 import "firebase/storage";
 import draftToHtml from "draftjs-to-html";
 import { add_Post_Action } from "../../../../../Redux/Actions/index";
-import { Upload, message } from "antd";
+import { Upload, message, Checkbox } from "antd";
 import { InboxOutlined } from "@ant-design/icons";
 import Chance from "chance";
 import "antd/dist/antd.css";
@@ -33,6 +33,7 @@ export class UncontrolledEditor extends Component {
       catagory: "Catagory",
       htmlContent: "",
       image: "",
+      isAuthor: true,
     };
   }
 
@@ -138,6 +139,7 @@ export class UncontrolledEditor extends Component {
         image: this.state.image,
         title: this.state.title,
         link: this.state.link,
+        isAuthor: this.state.isAuthor,
       };
       this.props.dispatch(add_Post_Action(info));
     }
@@ -206,6 +208,14 @@ export class UncontrolledEditor extends Component {
         })
       );
     };
+    const changedChekBoxHandler = (e) => {
+      this.setState(
+        (this.state = {
+          isAuthor: e.target.checked,
+        })
+      );
+      console.log(this.state);
+    };
     const onContentStateChange = (contentState) => {
       this.setState(
         (this.state = {
@@ -243,6 +253,7 @@ export class UncontrolledEditor extends Component {
             label="Author"
             variant="outlined"
           />
+
           <TextField
             className="text-field"
             label="Link"
@@ -268,6 +279,7 @@ export class UncontrolledEditor extends Component {
               );
             })}
           </NativeSelect>
+          <Checkbox onChange={changedChekBoxHandler}>Author?</Checkbox>
         </List>
         <Editor
           className="the-editor"

@@ -57,7 +57,7 @@ export default function ACatagory() {
 
       <br></br>
       <br></br>
-      <Trending></Trending>
+      <Trending posts={cPosts}></Trending>
 
       <br></br>
       <br></br>

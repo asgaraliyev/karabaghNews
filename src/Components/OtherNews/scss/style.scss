@@ -85,6 +85,25 @@
                         //     transform: translate(-50%, -50%) !important;
                         // }
                     }
+
+                    &:hover {
+
+                        .for-width {
+
+                            img {
+                                transition: 0.5s ease all !important;
+                                width: 120% !important;
+                            }
+                        }
+
+                        .for-height {
+
+                            img {
+                                transition: 0.5s ease all !important;
+                                height: 120% !important;
+                            }
+                        }
+                    }
                 }
             }
         }

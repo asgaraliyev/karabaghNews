@@ -7,10 +7,11 @@ import "./scss/style.scss";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import InstagramIcon from "@material-ui/icons/Instagram";
-import ReactPlayer from "react-player";
 import { useMediaQuery } from "react-responsive";
 import Trending from "../../Components/Trending/Trending";
+import OtherNews from "../../Components/OtherNews/OtherNews";
 import GettingAPosts from "../../Functions/GettingAPosts";
+import GettingPosts from "../../Functions/GettingPosts";
 export default function ANews() {
   var { newsName } = useParams();
   const moreThansixhundred = useMediaQuery({ query: "(min-width: 600px)" });
@@ -31,26 +32,37 @@ export default function ANews() {
     heightofNewsContainer = true;
   }
   var thePost = {
-    key: "Loading...",
-    author: "",
-    body: "",
-    catagory: "",
-    image:
-      "https://i.pinimg.com/originals/1a/e0/90/1ae090fce667925b01954c2eb72308b6.gif",
-    time: "",
-    title: "Loading..",
-    link: "",
+    data: {
+      key: "Loading...",
+      author: "",
+      body: "",
+      catagory: "",
+      image:
+        "https://i.pinimg.com/originals/1a/e0/90/1ae090fce667925b01954c2eb72308b6.gif",
+      time: "",
+      title: "Loading..",
+      link: "",
+    },
+    date: null,
   };
 
   const [theNews, setTheNews] = useState(thePost);
+  const [relatedPosts, setRelatedPosts] = useState([]);
 
   useEffect(() => {
-    GettingAPosts(newsName).then((response) => {
-      console.log(response.data);
-      console.log(thePost);
-      if (response.success) {
-        setTheNews(response.data);
-      }
+    GettingPosts().then((posts) => {
+      posts.map((post) => {
+        if (post.data.link === newsName) {
+          setTheNews(post);
+          var allRelatedPosts = [];
+          posts.map((altPost) => {
+            if (altPost.data.catagory === post.data.catagory) {
+              allRelatedPosts.push(altPost);
+            }
+          });
+          setRelatedPosts(allRelatedPosts)
+        }
+      });
     });
   }, []);
 
@@ -59,7 +71,7 @@ export default function ANews() {
       <Header
         info={{
           type: "anews",
-          title: theNews.catagory,
+          title: theNews.data.catagory,
           classNamee: "zIndex",
           lightContent: true,
         }}
@@ -71,18 +83,18 @@ export default function ANews() {
               height={heightofNewsContainer}
               width={widthOfNewsContainer}
               content={false}
-              imageLink={theNews.image}
+              imageLink={theNews.data.image}
             ></ANewsContainer>
             <div className="curtain"></div>
           </div>
           <div className="news-content-side">
             <div className="to-top">
               <div className="to-expand">
-                <h2>{theNews.title}</h2>
+                <h2>{theNews.data.title}</h2>
                 <br></br>
                 <Typography>
                   <div
-                    dangerouslySetInnerHTML={{ __html: `${theNews.body}` }}
+                    dangerouslySetInnerHTML={{ __html: `${theNews.data.body}` }}
                   ></div>
                 </Typography>
                 <br></br>
@@ -126,8 +138,8 @@ export default function ANews() {
                   </div>
                   <br></br>
                   <h3>Related Posts</h3>
-                  <Trending></Trending>
-                  <Trending></Trending>
+                  <Trending posts={relatedPosts}></Trending>
+                  <OtherNews posts={relatedPosts}></OtherNews>
                 </div>
               </div>
             </div>

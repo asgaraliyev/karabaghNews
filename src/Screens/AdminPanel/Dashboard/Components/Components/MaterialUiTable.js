@@ -23,8 +23,14 @@ const columns = [
     render: (text) => <Image src={text} aspectRatio={16 / 9}></Image>,
   },
   {
+    title: "Views",
+    dataIndex: "views",
+  },
+  {
     title: "link",
-    render: (text) => <a href={`${window.location.origin}/news/${text}`} >{text}</a>,
+    render: (text) => (
+      <a href={`${window.location.origin}/news/${text}`}>{text}</a>
+    ),
     dataIndex: "link",
   },
   {
@@ -56,6 +62,7 @@ const Demo = (props) => {
       id: item.id,
       key: item.id,
       title: item.data.title,
+      views: item.data.views,
       image: item.data.image,
       link: item.data.link,
       catagory: item.data.catagory,

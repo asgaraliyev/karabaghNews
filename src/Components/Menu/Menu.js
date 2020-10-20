@@ -22,11 +22,11 @@ export default function Menu() {
       <h1>News</h1>
       <List>
         {catagories.map((text, index) => (
-          <ListItem onClick={() => catagory_Changed(text)} button key={text}>
-            <Link to={`/catagory/${text}`}>
+          <Link key={index} to={`/catagory/${text}`}>
+            <ListItem onClick={() => catagory_Changed(text)} button >
               <h3>{text}</h3>
-            </Link>
-          </ListItem>
+            </ListItem>
+          </Link>
         ))}
       </List>
       <br></br>

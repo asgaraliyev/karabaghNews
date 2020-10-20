@@ -6,34 +6,34 @@ import Authors from "./Authors/Authors";
 import EditorChoise from "./EditorChoise/EditorChoise";
 import OtherNews from "../../Components/OtherNews/OtherNews";
 import getting_Posts_Function from "../../Functions/GettingPosts";
+import getting_Avarage_Population from "../../Functions/AvaragePopulation";
 export default class HomePage extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      posts: [],
-    };
-    var info = {
-      data: {
-        author: "Loading...",
-        body: "Loading...",
-        catagory: "Loading...",
-        // TODO put a loading image to here
-        image: "Photo",
-        link: "",
-        title: "Loading...",
-      },
-      date: Date(),
-    };
     var listOfPosts = [];
-    listOfPosts.push(info);
-    this.setState(
-      (this.state = {
-        posts: listOfPosts,
-      })
-    );
+
+    for (let i = 0; i < 15; i++) {
+      var info = {
+        data: {
+          author: "Loading...",
+          body: "Loading...",
+          catagory: "Loading...",
+          // TODO put a loading image to here
+          image: "https://i.pinimg.com/originals/1a/e0/90/1ae090fce667925b01954c2eb72308b6.gif",
+          link: String(i),
+          title: "Loading...",
+        },
+        date: Date(),
+      };
+      listOfPosts.push(info);
+    }
+    this.state = {
+      posts: listOfPosts,
+    };
   }
   componentDidMount() {
     const self = this;
+
     getting_Posts_Function().then((posts) => {
       self.setState(
         (self.state = {
@@ -43,7 +43,6 @@ export default class HomePage extends Component {
     });
   }
   render() {
-    console.log(this.state.posts);
     return (
       <div>
         <Header
@@ -53,8 +52,8 @@ export default class HomePage extends Component {
           }}
         ></Header>
         <Catagories></Catagories>
-        <Trending></Trending>
-        <Authors></Authors>
+        <Trending posts={this.state.posts}></Trending>
+        <Authors posts={this.state.posts}></Authors>
         <EditorChoise></EditorChoise>
         <OtherNews posts={this.state.posts}></OtherNews>
       </div>

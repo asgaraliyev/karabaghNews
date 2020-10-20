@@ -30,6 +30,7 @@
          width: 100%;
          height: 100%;
          position: absolute;
+         transition: 0.5s ease all;
 
          div {
             width: 100%;
@@ -45,6 +46,18 @@
             top: 50% !important;
             left: 50% !important;
             transform: translate(-50%, -50%) !important;
+
+         }
+      }
+
+      &:hover {
+      
+         .image-container {
+           
+            div{
+               transition: 0.5s ease;
+               height: 105% !important;
+            }
 
          }
       }

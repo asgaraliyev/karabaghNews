@@ -38,6 +38,8 @@ const addPostFunction = async () => {
     time: firebase.firestore.Timestamp.fromDate(new Date()),
     title: postInformations.title,
     link: postInformations.link,
+    views: Math.floor(Math.random() * 100 + 1),
+    isAuthor:  postInformations.isAuthor,
   };
   try {
     db.collection("posts")
@@ -45,8 +47,7 @@ const addPostFunction = async () => {
       .set(thePost)
       .then(console.log("document successfully written!"));
   } catch (error) {
-  console.log("addPostFunction -> error", error)
-    
+    console.log("addPostFunction -> error", error);
   }
 };
 export default addPostFunction;

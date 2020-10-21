@@ -33,16 +33,18 @@
                 bottom: 50px;
                 width: 100%;
                 padding: 1em;
-            
+
 
                 * {
                     text-shadow: 0px 0px 10px black;
                     color: white;
                 }
-                .time-sec{
+
+                .time-sec {
                     float: right;
                     right: 30px;
                 }
+
                 .author-sec {
                     float: left;
                     left: 30px;
@@ -170,9 +172,8 @@
             background: #00ACED;
         }
 
-        .instagram {
-            background: rgb(243, 17, 32);
-            background: linear-gradient(45deg, rgba(243, 17, 32, 1) 0%, rgba(196, 0, 151, 1) 100%);
+        .whatsapp {
+            background: #37c04b;
         }
     }
 }

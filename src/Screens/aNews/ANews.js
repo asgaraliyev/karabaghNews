@@ -13,6 +13,7 @@ import OtherNews from "../../Components/OtherNews/OtherNews";
 import GettingAPosts from "../../Functions/GettingAPosts";
 import GettingPosts from "../../Functions/GettingPosts";
 import { Avatar } from "@material-ui/core";
+import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import ReactTimeAgo from "react-time-ago";
 export default function ANews() {
   var { newsName } = useParams();
@@ -172,12 +173,16 @@ export default function ANews() {
                         </span>
                         <span className="the-text">Twitter</span>
                       </a>
-                      <div className="social instagram">
+                      <a
+                        className="social whatsapp"
+                        href={`whatsapp://send?text=${window.location.origin}/news/${theNews.data.link}`}
+                        data-action="share/whatsapp/share"
+                      >
                         <span className="icon">
-                          <InstagramIcon></InstagramIcon>
+                          <WhatsAppIcon></WhatsAppIcon>
                         </span>
-                        <span className="the-text">Instagram</span>
-                      </div>
+                        <span className="the-text">Whatsapp</span>
+                      </a>
                     </div>
                     <br></br>
                     <h3>Related Posts</h3>

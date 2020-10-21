@@ -24,7 +24,6 @@ export default class Trending extends Component {
       arrows: false,
       autoplay: true,
       autoplaySpeed: 3000,
-      pauseOnHover: true,
       responsive: [
         {
           breakpoint: 470,

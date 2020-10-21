@@ -26,13 +26,12 @@ const useStyles = makeStyles((theme) => ({
 const Slider_Settings = {
   dost: false,
   infinite: true,
-  speed: 3000,
+  speed: 1000,
   slidesToScroll: 1,
   slidesToShow: 3,
   arrows: false,
   autoplay: true,
-  autoplaySpeed: 13000,
-  pauseOnHover: true,
+  autoplaySpeed: 3000,
   rtl: true,
   responsive: [
     {

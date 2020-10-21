@@ -144,40 +144,47 @@ export default function ANews() {
                   known until today," he said.
                 </Typography> */}
                 <br></br>
-                <div id="social-media-for-a-post">
-                  <h3>Share this post</h3>
-                  <br></br>
-                  <div className="socials">
-                    <a
-                      href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.origin}/news/${theNews.data.link}`}
-                      className="social facebook "
-                      data-href={``}
-                      data-layout="button"
-                      data-size="small"
-                    >
-                      <span className="icon">
-                        <FacebookIcon></FacebookIcon>
-                      </span>
-                      <span className="the-text">Facebook</span>
-                    </a>
-                    <div className="social twitter">
-                      <span className="icon">
-                        <TwitterIcon></TwitterIcon>
-                      </span>
-                      <span className="the-text">Twitter</span>
+                {theNews.date !== null ? (
+                  <div id="social-media-for-a-post">
+                    <h3>Share this post</h3>
+                    <br></br>
+                    <div className="socials">
+                      <a
+                        href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.origin}/news/${theNews.data.link}`}
+                        className="social facebook "
+                        data-href={`${window.location.origin}/news/${theNews.data.link}`}
+                        data-layout="button"
+                        data-size="small"
+                      >
+                        <span className="icon">
+                          <FacebookIcon></FacebookIcon>
+                        </span>
+                        <span className="the-text">Facebook</span>
+                      </a>
+                      <a
+                        className="social twitter"
+                        title="Share on twitter"
+                        href={`https://twitter.com/intent/tweet?url=${window.location.origin}/news/${theNews.data.link}`}
+                        rel="noopener"
+                      >
+                        <span className="icon">
+                          <TwitterIcon></TwitterIcon>
+                        </span>
+                        <span className="the-text">Twitter</span>
+                      </a>
+                      <div className="social instagram">
+                        <span className="icon">
+                          <InstagramIcon></InstagramIcon>
+                        </span>
+                        <span className="the-text">Instagram</span>
+                      </div>
                     </div>
-                    <div className="social instagram">
-                      <span className="icon">
-                        <InstagramIcon></InstagramIcon>
-                      </span>
-                      <span className="the-text">Instagram</span>
-                    </div>
+                    <br></br>
+                    <h3>Related Posts</h3>
+                    <Trending posts={relatedPosts}></Trending>
+                    <OtherNews posts={relatedPosts}></OtherNews>
                   </div>
-                  <br></br>
-                  <h3>Related Posts</h3>
-                  <Trending posts={relatedPosts}></Trending>
-                  <OtherNews posts={relatedPosts}></OtherNews>
-                </div>
+                ) : null}
               </div>
             </div>
           </div>

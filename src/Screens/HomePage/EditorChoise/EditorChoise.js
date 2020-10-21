@@ -4,8 +4,8 @@ import Image from "material-ui-image";
 import { makeStyles } from "@material-ui/core/styles";
 import MedalIcon from "../../../Icons/MedalIcon";
 import Avatar from "@material-ui/core/Avatar";
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-import ANewsContainer from '../../../Components/aNewsContainer/aNewsContainer'
+import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
+import ANewsContainer from "../../../Components/aNewsContainer/aNewsContainer";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -31,7 +31,7 @@ export default function EditorChoise() {
   return (
     <div id="editor-choise">
       <div className="photo side">
-       <ANewsContainer width={true} content={false}></ANewsContainer>
+        <ANewsContainer width={true} content={false}></ANewsContainer>
       </div>
       <div className="content side">
         <div>
@@ -40,17 +40,14 @@ export default function EditorChoise() {
           ></MedalIcon>
           <p className="editor-choice">Editor Choice</p>
         </div>
-        <br></br>
         <div>
           <h4 className="title">Ad veniam commodo veniam officia et magna.</h4>
-          <br></br>
           <p className="description">
             Lorem officia quis aute pariatur ad ullamco id reprehenderit
             do.Ipsum reprehenderit voluptate ipsum non nostrud aliqua quis
             consectetur.
           </p>
         </div>
-        <br></br>
         <div className="about-author">
           <span className="display-inline-block">
             <Avatar
@@ -59,11 +56,11 @@ export default function EditorChoise() {
               className={classes.small}
             />
           </span>
-          <span  className="display-inline-block">
+          <span className="display-inline-block">
             <p className="profile-title">Zohaib Anjum</p>
           </span>
-          <span  className="display-inline-block icon">
-            <MoreHorizIcon ></MoreHorizIcon>
+          <span className="display-inline-block icon">
+            <MoreHorizIcon></MoreHorizIcon>
           </span>
         </div>
       </div>

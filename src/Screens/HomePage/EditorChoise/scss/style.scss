@@ -12,6 +12,9 @@
         flex-direction: column;
         height: auto;
     }
+    @media only screen and (min-width: 1000px) {
+        height: 300px;
+    }
 
     .side {
         flex: 1;
@@ -46,11 +49,15 @@
 
     .content {
         padding: 10px;
-
+        position: relative;
         .medal-icon {
             // width: 100px;
         }
-
+        .about-author{
+            position: absolute;
+            width:90%;
+            bottom: 0px;
+        }
         .editor-choice,
         .description {
             font-size: small;

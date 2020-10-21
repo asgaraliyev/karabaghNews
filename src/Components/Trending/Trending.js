@@ -18,9 +18,9 @@ export default class Trending extends Component {
     const Slider_Settings = {
       dost: false,
       infinite: true,
-      speed: 3000,
+      speed: 1000,
       slidesToShow: 5,
-      slidesToScroll: 1,
+      slidesToScroll: 2,
       arrows: false,
       autoplay: true,
       autoplaySpeed: 3000,
@@ -30,18 +30,21 @@ export default class Trending extends Component {
           breakpoint: 470,
           settings: {
             slidesToShow: 2,
+            slidesToScroll: 1,
           },
         },
         {
           breakpoint: 700,
           settings: {
-            slidesToShow: 3,
+            slidesToShow: 2,
+            slidesToScroll: 1,
           },
         },
         {
           breakpoint: 900,
           settings: {
             slidesToShow: 4,
+            slidesToShow: 3,
           },
         },
       ],
@@ -75,8 +78,7 @@ export default class Trending extends Component {
                     </div>
                     <div className="info">
                       <div className="info-container">
-                        <span className="news-title">{post.data.title}</span>
-                        <br></br>
+                        <p className="news-title">{post.data.title}</p>
                         <span className="time">
                           <ReactTimeAgo
                             date={post.date}

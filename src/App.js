@@ -20,6 +20,7 @@ import AdminLogin from "./Screens/AdminPanel/AdminLogin/AdminLogin";
 import Dashboard from "./Screens/AdminPanel/Dashboard/Dashboard";
 // import { change_Firebase_Action } from "./Redux/Actions/index";
 // import SuperMarket from "./Redux/SuperMarket/SuperMarket";
+import ScrollToTop from "./ScrollToTop";
 import TheDialog from "./Screens/AdminPanel/Dashboard/Components/Components/DialogForContents";
 
 function App() {
@@ -44,9 +45,10 @@ function App() {
   });
   return (
     <Router history={History}>
+      <ScrollToTop></ScrollToTop>
       <div id="app">
         <DrawerMenu amIOpen={theMenu}></DrawerMenu>
-        <TheDialog ></TheDialog>
+        <TheDialog></TheDialog>
         <main>
           <Switch>
             <Route exact path="/">

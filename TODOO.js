@@ -1,5 +1,5 @@
 // 1.ANEWS fileinda author ve time i elave etmek
-2.ANEWS fileinda share on social i api larnan konfugurasiya etmek
+// 2.ANEWS fileinda share on social i api larnan konfugurasiya etmek
 // 3. news da qara yazilan basliglari duzeltmek
 // 4.responsiv tam olmayan trendingleri duzeltmek
 // 5.trendingiin repsonsivliyin artirmag

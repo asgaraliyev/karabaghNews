@@ -8,6 +8,8 @@ import ReactDOM from "react-dom";
 import "antd/dist/antd.css";
 import Image from "material-ui-image";
 import { Table, Radio, Divider, Button } from "antd";
+import { useDispatch } from "react-redux";
+import { change_Dialog_Content_Action } from "../../../../../Redux/Actions/index";
 const columns = [
   {
     title: "id",
@@ -49,6 +51,7 @@ const columns = [
 // rowSelection object indicates the need for row selection
 
 const Demo = (props) => {
+  const dispatch = useDispatch();
   var list = [];
   const [selected, setSelected] = useState([]);
   const rowSelection = {
@@ -90,10 +93,29 @@ const Demo = (props) => {
       }
     });
   };
+  const editHandler = () => {
+    const db = firebase.firestore();
+    selected.map((row) => {
+      var result = window.confirm("Di you want to edit " + row.title + "?");
+      if (result) {
+        var info = {
+          data: {
+            isDialogOpen: true,
+            dialogComponentName: "editPostComponent",
+            link: row.link,
+          },
+        };
+        dispatch(change_Dialog_Content_Action(info));
+      }
+    });
+  };
   return (
     <div>
       <Button danger onClick={deleteHandler}>
         Delete
+      </Button>
+      <Button danger onClick={editHandler}>
+        Edit
       </Button>
       {/* <Button onClick={editHandler}>Edit</Button> */}
       <Table

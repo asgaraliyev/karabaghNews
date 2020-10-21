@@ -32,6 +32,7 @@ export const add_Post_Reducer = (state = addPostInitialState, action) => {
       image: action.data.image,
       title: action.data.title,
       link: action.data.link,
+      views: action.data.views,
       isAuthor: action.data.isAuthor,
     };
   } else {

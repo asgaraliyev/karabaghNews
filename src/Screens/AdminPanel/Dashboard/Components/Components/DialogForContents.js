@@ -14,7 +14,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import addPostFunction from "./Functions/AddPostFunction";
+import addOrEditPostFunction from "./Functions/AddOrEditPostFunction";
 import AddOrDeleteCatagoryFunction from "./Functions/AddOrDeleteCatagoryFunction";
 import AddCatagory from "./AddCatagory";
 export default function FullScreenDialog() {
@@ -33,6 +33,7 @@ export default function FullScreenDialog() {
     dispatch(change_Dialog_Content_Action(info));
   };
   const dialogComponentName = dialogReducerSelector.dialogComponentName;
+  const editLink = dialogReducerSelector.link;
   var theComponentItSelf, questionForSmallDialog, saveBtnFunction;
   var title = "Something went wrong here ...Sorry :(";
   if (dialogComponentName === "addPostComponent") {
@@ -41,7 +42,11 @@ export default function FullScreenDialog() {
   } else if (dialogComponentName === "addCatagoryComponent") {
     title = "add a new catagory";
     questionForSmallDialog = "   Are you sure about saving this catagory?";
+  } else if (dialogComponentName === "editPostComponent") {
+    title = "edit this post";
+    questionForSmallDialog = "  Are you sure about saving this post?";
   }
+
   return (
     <div>
       <Dialog fullScreen open={isDialogOpen}>
@@ -86,6 +91,7 @@ export default function FullScreenDialog() {
           dispatch={dispatch}
           saveBtn={saveBtn}
           componentName={dialogComponentName}
+          reducer={dialogReducerSelector}
         ></TheComponent>
       </Dialog>
       <Dialog
@@ -110,7 +116,15 @@ export default function FullScreenDialog() {
             color="primary"
             onClick={() => {
               if (dialogComponentName === "addPostComponent") {
-                addPostFunction();
+                addOrEditPostFunction({
+                  type: "ADD",
+                  data: null,
+                });
+              } else if (dialogComponentName === "editPostComponent") {
+                addOrEditPostFunction({
+                  type: "EDIT",
+                  data: editLink,
+                });
               } else if (dialogComponentName === "addCatagoryComponent") {
                 AddOrDeleteCatagoryFunction({
                   type: "ADD",
@@ -133,11 +147,21 @@ function TheComponent(props) {
       <UncontrolledEditor
         save={props.saveBtn}
         dispatch={props.dispatch}
+        edit={false}
       ></UncontrolledEditor>
     );
   } else if (props.componentName == "addCatagoryComponent") {
     return (
       <AddCatagory save={props.saveBtn} dispatch={props.dispatch}></AddCatagory>
+    );
+  } else if (props.componentName == "editPostComponent") {
+    return (
+      <UncontrolledEditor
+        save={props.saveBtn}
+        dispatch={props.dispatch}
+        edit={true}
+        link={props.reducer.link}
+      ></UncontrolledEditor>
     );
   } else {
     return <div>Something went wrong</div>;

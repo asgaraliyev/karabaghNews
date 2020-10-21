@@ -10,9 +10,13 @@ import draftToHtml from "draftjs-to-html";
 import { add_Post_Action } from "../../../../../Redux/Actions/index";
 import { Upload, message, Checkbox } from "antd";
 import { InboxOutlined } from "@ant-design/icons";
+import gettingAPost from "../../../../../Functions/GettingAPosts";
 import Chance from "chance";
+import Image from "material-ui-image";
 import "antd/dist/antd.css";
 import { notification, Progress } from "antd";
+import htmlToDraft from "html-to-draftjs";
+import { ContentState } from "draft-js";
 const openNotificationWithIcon = (info) => {
   notification[info.type]({
     message: info.title,
@@ -32,8 +36,10 @@ export class UncontrolledEditor extends Component {
       author: "",
       catagory: "Catagory",
       htmlContent: "",
-      image: "",
+      image: null,
       isAuthor: true,
+      views: null,
+      editPost: null,
     };
   }
 
@@ -44,6 +50,33 @@ export class UncontrolledEditor extends Component {
   };
   componentDidMount() {
     this.getData();
+    if (this.props.edit) {
+      gettingAPost(this.props.link).then((post) => {
+        if (post.success) {
+        console.log("UncontrolledEditor -> componentDidMount -> post", post);
+
+          const blocksFromHtml = htmlToDraft(post.data.body);
+          const { contentBlocks, entityMap } = blocksFromHtml;
+          const contentState = ContentState.createFromBlockArray(
+            contentBlocks,
+            entityMap
+          );
+          const editorState = EditorState.createWithContent(contentState);
+          this.setState(
+            (this.state = {
+              title: post.data.title,
+              link: post.data.link,
+              author: post.data.author,
+              catagory: post.data.catagory,
+              image: post.data.image,
+              isAuthor: post.data.isAuthor,
+              views: post.data.views,
+              editorState: editorState,
+            })
+          );
+        }
+      });
+    }
   }
   getData() {
     let self = this;
@@ -63,6 +96,7 @@ export class UncontrolledEditor extends Component {
       });
   }
   render() {
+    console.log(this.state);
     const self = this;
     const props = {
       name: "file",
@@ -139,6 +173,7 @@ export class UncontrolledEditor extends Component {
         image: this.state.image,
         title: this.state.title,
         link: this.state.link,
+        views: this.state.views,
         isAuthor: this.state.isAuthor,
       };
       this.props.dispatch(add_Post_Action(info));
@@ -223,6 +258,7 @@ export class UncontrolledEditor extends Component {
         })
       );
     };
+
     return (
       <div id="padding-for-editor">
         <List>
@@ -230,24 +266,32 @@ export class UncontrolledEditor extends Component {
             <Progress percent={this.state.progressNumber} />
           ) : null}
           <Dragger {...props}>
-            <p className="ant-upload-drag-icon">
-              <InboxOutlined />
-            </p>
-            <p className="ant-upload-text">
-              Click or drag file to this area to upload
-            </p>
-            <p className="ant-upload-hint">
-              Support for a single or bulk upload. Strictly prohibit from
-              uploading company data or other band files
-            </p>
+            {this.state.image !== null ? (
+              <Image aspectRatio={16 / 9} src={this.state.image}></Image>
+            ) : (
+              <div>
+                <p className="ant-upload-drag-icon">
+                  <InboxOutlined />
+                </p>
+                <p className="ant-upload-text">
+                  Click or drag file to this area to upload
+                </p>
+                <p className="ant-upload-hint">
+                  Support for a single or bulk upload. Strictly prohibit from
+                  uploading company data or other band files
+                </p>
+              </div>
+            )}
           </Dragger>
           <TextField
+            value={this.state.title}
             className="text-field"
             label="Title"
             variant="outlined"
             onChange={titleChanged}
           />
           <TextField
+            value={this.state.author}
             onChange={author_Changed}
             className="text-field"
             label="Author"
@@ -255,9 +299,9 @@ export class UncontrolledEditor extends Component {
           />
 
           <TextField
+            value={this.state.link}
             className="text-field"
             label="Link"
-            value={this.state.link}
             variant="outlined"
           />
           <NativeSelect
@@ -279,7 +323,12 @@ export class UncontrolledEditor extends Component {
               );
             })}
           </NativeSelect>
-          <Checkbox onChange={changedChekBoxHandler}>Author?</Checkbox>
+          <Checkbox
+            checked={this.state.isAuthor}
+            onChange={changedChekBoxHandler}
+          >
+            Author?
+          </Checkbox>
         </List>
         <Editor
           className="the-editor"

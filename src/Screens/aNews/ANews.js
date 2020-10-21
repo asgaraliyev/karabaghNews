@@ -12,6 +12,8 @@ import Trending from "../../Components/Trending/Trending";
 import OtherNews from "../../Components/OtherNews/OtherNews";
 import GettingAPosts from "../../Functions/GettingAPosts";
 import GettingPosts from "../../Functions/GettingPosts";
+import { Avatar } from "@material-ui/core";
+import ReactTimeAgo from "react-time-ago";
 export default function ANews() {
   var { newsName } = useParams();
   const moreThansixhundred = useMediaQuery({ query: "(min-width: 600px)" });
@@ -66,7 +68,7 @@ export default function ANews() {
       });
     });
   }, [newsName]);
-
+  console.log(theNews.date, "sea");
   return (
     <div id="a-news">
       <Header
@@ -86,13 +88,41 @@ export default function ANews() {
               content={false}
               imageLink={theNews.data.image}
             ></ANewsContainer>
-            <div className="curtain"></div>
+            <div className="curtain">
+              <div className="post-info">
+                <div className="author-sec">
+                  <span>
+                    <div className="avatar-borders">
+                      {theNews.date !== null ? (
+                        <Avatar
+                          alt={theNews.data.author}
+                          src={theNews.data.author}
+                        ></Avatar>
+                      ) : null}
+                    </div>
+                  </span>
+                  <span>{theNews.data.author}</span>
+                </div>
+                <div className="time-sec">
+                  <span>
+                    {theNews.date !== null ? (
+                      <ReactTimeAgo
+                        date={theNews.date}
+                        locale="az-Az"
+                        timeStyle="round"
+                      ></ReactTimeAgo>
+                    ) : null}
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="news-content-side">
             <div className="to-top">
               <div className="to-expand" id="a-news-content">
                 <h2>{theNews.data.title}</h2>
                 <br></br>
+
                 <Typography>
                   <div
                     dangerouslySetInnerHTML={{ __html: `${theNews.data.body}` }}
@@ -118,12 +148,18 @@ export default function ANews() {
                   <h3>Share this post</h3>
                   <br></br>
                   <div className="socials">
-                    <div className="social facebook">
+                    <a
+                      href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.origin}/news/${theNews.data.link}`}
+                      className="social facebook "
+                      data-href={``}
+                      data-layout="button"
+                      data-size="small"
+                    >
                       <span className="icon">
                         <FacebookIcon></FacebookIcon>
                       </span>
                       <span className="the-text">Facebook</span>
-                    </div>
+                    </a>
                     <div className="social twitter">
                       <span className="icon">
                         <TwitterIcon></TwitterIcon>

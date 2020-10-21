@@ -27,6 +27,51 @@
             z-index: 2;
             background: rgb(0, 0, 0);
             background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6674019949776786) 83%);
+
+            .post-info {
+                position: absolute;
+                bottom: 50px;
+                width: 100%;
+                padding: 1em;
+            
+
+                * {
+                    text-shadow: 0px 0px 10px black;
+                    color: white;
+                }
+                .time-sec{
+                    float: right;
+                    right: 30px;
+                }
+                .author-sec {
+                    float: left;
+                    left: 30px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+
+                }
+
+                .avatar-borders {
+                    width: 50px;
+                    padding: 0px;
+                    margin: 0px;
+                    float: left;
+                }
+
+                .span {
+                    position: relative;
+                    display: inline-block;
+                    float: left;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+
+
+                }
+            }
         }
 
         .news-content-side {

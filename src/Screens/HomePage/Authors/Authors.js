@@ -67,7 +67,7 @@ export default function Authors({ posts }) {
           if (post.data.isAuthor) {
             console.log("Authors -> post", post);
             return (
-              <div className="author">
+              <div key={post.data.link} className="author">
                 <Link to={`/news/${post.data.link}`}>
                   <span className="profile-photo">
                     <div className={classes.root}>

@@ -41,7 +41,6 @@ export default function EditorChoise(props) {
   }
   useEffect(() => {
     if (findEditorChoice()) {
-      console.log("EditorChoise -> post", posts);
       const maxViewsValue = findEditorChoice();
       if (maxViewsValue !== null) {
         posts.map((post) => {

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import "./scss/style.scss";
 import Image from "material-ui-image";
 import { makeStyles } from "@material-ui/core/styles";
@@ -22,48 +22,102 @@ const useStyles = makeStyles((theme) => ({
     height: theme.spacing(7),
   },
 }));
-export default function EditorChoise() {
+export default function EditorChoise(props) {
+  const { posts } = props;
+  const [thePostItSelf, setthePostItSelf] = useState(null);
+  const [description, setDescription] = useState(null);
+  function findEditorChoice() {
+    var maxViews = 0;
+    posts.map((post) => {
+      if (post.data.views) {
+        maxViews = Math.max(maxViews, post.data.views);
+      }
+    });
+    if (maxViews !== 0) {
+      return maxViews;
+    } else {
+      return null;
+    }
+  }
+  useEffect(() => {
+    if (findEditorChoice()) {
+      console.log("EditorChoise -> post", posts);
+      const maxViewsValue = findEditorChoice();
+      if (maxViewsValue !== null) {
+        posts.map((post) => {
+          if (post.data.views === maxViewsValue) {
+            setthePostItSelf(post);
+            function extractContent(s) {
+              var span = document.createElement("span");
+              span.innerHTML = s;
+              return span.textContent || span.innerText;
+            }
+            var body = extractContent(post.data.body);
+            body = body.slice(0, 200);
+            body = body.split(" ");
+            body = body.slice(0, body.length - 2);
+            var newBody = "";
+            body.map((word) => {
+              newBody += word + " ";
+            });
+            body = newBody;
+            body += "...";
+            var description = body;
+            setDescription(description);
+          }
+        });
+      }
+    }
+  }, [findEditorChoice()]);
+
   const classes = useStyles();
-  const newsPhoto =
-    "https://res.cloudinary.com/https-www-isango-com/image/upload/f_auto/t_m_Prod/v7682/middle%20east/uae/dubai/13233.jpg";
   const avatarPhoto =
     "https://pm1.narvii.com/6310/b40b659a7a5a6ba79fe648749c050b0e76ffff5d_128.jpg";
   return (
-    <div id="editor-choise">
-      <div className="photo side">
-        <ANewsContainer width={true} content={false}></ANewsContainer>
-      </div>
-      <div className="content side">
-        <div>
-          <MedalIcon
-            info={{ classNamee: "", fill: "", width: "20px", height: "20px" }}
-          ></MedalIcon>
-          <p className="editor-choice">Editor Choice</p>
+    <>
+      {thePostItSelf !== null ? (
+        <div id="editor-choise">
+          <div className="photo side">
+            <ANewsContainer
+              width={true}
+              content={false}
+              imageLink={thePostItSelf.data.image}
+            ></ANewsContainer>
+          </div>
+          <div className="content side">
+            <div>
+              <MedalIcon
+                info={{
+                  classNamee: "",
+                  fill: "",
+                  width: "20px",
+                  height: "20px",
+                }}
+              ></MedalIcon>
+              <p className="editor-choice">Editor Choice</p>
+            </div>
+            <div>
+              <h4 className="title">{thePostItSelf.data.title}</h4>
+              <p className="description">{description}</p>
+            </div>
+            <div className="about-author">
+              <span className="display-inline-block">
+                <Avatar
+                  alt={thePostItSelf.data.author}
+                  src={avatarPhoto}
+                  className={classes.small}
+                />
+              </span>
+              <span className="display-inline-block">
+                <p className="profile-title">{thePostItSelf.data.author}</p>
+              </span>
+              <span className="display-inline-block icon">
+                <MoreHorizIcon></MoreHorizIcon>
+              </span>
+            </div>
+          </div>
         </div>
-        <div>
-          <h4 className="title">Ad veniam commodo veniam officia et magna.</h4>
-          <p className="description">
-            Lorem officia quis aute pariatur ad ullamco id reprehenderit
-            do.Ipsum reprehenderit voluptate ipsum non nostrud aliqua quis
-            consectetur.
-          </p>
-        </div>
-        <div className="about-author">
-          <span className="display-inline-block">
-            <Avatar
-              alt="Remy Sharp"
-              src={avatarPhoto}
-              className={classes.small}
-            />
-          </span>
-          <span className="display-inline-block">
-            <p className="profile-title">Zohaib Anjum</p>
-          </span>
-          <span className="display-inline-block icon">
-            <MoreHorizIcon></MoreHorizIcon>
-          </span>
-        </div>
-      </div>
-    </div>
+      ) : null}
+    </>
   );
 }

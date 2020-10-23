@@ -54,7 +54,7 @@ export default class HomePage extends Component {
         <Catagories></Catagories>
         <Trending posts={this.state.posts}></Trending>
         <Authors posts={this.state.posts}></Authors>
-        <EditorChoise></EditorChoise>
+        <EditorChoise posts={this.state.posts}></EditorChoise>
         <OtherNews posts={this.state.posts}></OtherNews>
       </div>
     );

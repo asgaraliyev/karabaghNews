@@ -30,9 +30,7 @@ export default function Content(props) {
     <div className="side">
       <div className="content">
         <h5>{props.title}</h5>
-        <br></br>
         <p className="description">{body}</p>
-        <br></br>
 
         <ReactTimeAgo date={props.time} locale="az-Az" timeStyle="round" />
       </div>

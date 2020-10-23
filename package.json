@@ -1,39 +1,35 @@
 {
-  "name": "karabahnews",
+  "name": "karabakh-news",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ant-design/icons": "^4.2.2",
     "@material-ui/core": "^4.11.0",
-    "@material-ui/data-grid": "^4.0.0-alpha.6",
     "@material-ui/icons": "^4.9.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "antd": "^4.7.0",
+    "antd": "^4.7.2",
     "chance": "^1.1.7",
-    "chance-cli": "^1.0.7",
     "draft-js": "^0.11.7",
     "draftjs-to-html": "^0.9.1",
-    "firebase": "^7.23.0",
+    "firebase": "^7.24.0",
     "firebaseui": "^4.7.0",
     "history": "^5.0.0",
-    "html-to-draftjs": "^1.5.0",
+    "javascript-time-ago": "^2.3.2",
     "local-storage": "^2.0.0",
     "material-ui-image": "^3.3.0",
     "node-sass": "^4.14.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "react-draft-wysiwyg": "^1.14.5",
     "react-redux": "^7.2.1",
     "react-responsive": "^8.1.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3",
-    "react-slick": "^0.27.11",
-    "react-time-ago": "^6.1.1",
-    "react-transition-group": "^4.4.1",
-    "react-youtube": "^7.12.0",
+    "react-scripts": "^3.4.4",
+    "react-slick": "^0.27.12",
+    "react-time-ago": "^6.2.0",
     "redux": "^4.0.5",
-    "rgbaster": "^2.1.1",
     "slick-carousel": "^1.8.1"
   },
   "scripts": {
@@ -56,9 +52,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@babel/register": "^7.12.1",
-    "jsdom-quokka-plugin": "^1.0.16"
   }
 }

@@ -24,6 +24,7 @@ const openNotificationWithIcon = (info) => {
 };
 const chance = new Chance();
 const { Dragger } = Upload;
+ 
 
 export class UncontrolledEditor extends Component {
   constructor(props) {
@@ -53,7 +54,7 @@ export class UncontrolledEditor extends Component {
     if (this.props.edit) {
       gettingAPost(this.props.link).then((post) => {
         if (post.success) {
-        console.log("UncontrolledEditor -> componentDidMount -> post", post);
+          console.log("UncontrolledEditor -> componentDidMount -> post", post);
 
           const blocksFromHtml = htmlToDraft(post.data.body);
           const { contentBlocks, entityMap } = blocksFromHtml;
@@ -95,7 +96,21 @@ export class UncontrolledEditor extends Component {
         );
       });
   }
+
   render() {
+    if (this.props.save) {
+      var info = {
+        author: this.state.author,
+        body: this.state.htmlContent,
+        catagory: this.state.catagory,
+        image: this.state.image,
+        title: this.state.title,
+        link: this.state.link,
+        views: this.state.views,
+        isAuthor: this.state.isAuthor,
+      };
+      this.props.dispatch(add_Post_Action(info));
+    }
     console.log(this.state);
     const self = this;
     const props = {
@@ -165,19 +180,7 @@ export class UncontrolledEditor extends Component {
         }
       },
     };
-    if (this.props.save) {
-      var info = {
-        author: this.state.author,
-        body: this.state.htmlContent,
-        catagory: this.state.catagory,
-        image: this.state.image,
-        title: this.state.title,
-        link: this.state.link,
-        views: this.state.views,
-        isAuthor: this.state.isAuthor,
-      };
-      this.props.dispatch(add_Post_Action(info));
-    }
+
     const { editorState } = this.state;
     function convertString(phrase) {
       var maxLength = 100;

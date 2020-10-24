@@ -23,13 +23,13 @@ export default function Menu() {
       <List>
         {catagories.map((text, index) => (
           <Link key={index} to={`/catagory/${text}`}>
-            <ListItem onClick={() => catagory_Changed(text)} button >
+            <ListItem onClick={() => catagory_Changed(text)} button>
               <h3>{text}</h3>
             </ListItem>
           </Link>
         ))}
       </List>
-      <br></br>
+      {/* <br></br>
       <h1>More</h1>
       <List>
         {moreCatagories.map((text, index) => (
@@ -37,23 +37,14 @@ export default function Menu() {
             <h3>{text}</h3>
           </ListItem>
         ))}
-      </List>
+      </List> */}
       <br></br>
       <h1>Karabagh News</h1>
       <List>
         <Typography style={{ paddingRight: "3em" }}>
-          Elit amet irure elit consectetur. Cillum excepteur eiusmod
-          exercitation fugiat esse deserunt ut commodo enim voluptate ipsum
-          pariatur exercitation. Esse voluptate sint eiusmod in. Reprehenderit
-          nostrud et proident nulla eiusmod nisi amet quis. Amet irure et Lorem
-          magna do incididunt. Dolor veniam do dolor enim sit in. Esse esse ut
-          Lorem magna non adipisicing elit. Aliqua cupidatat nisi cupidatat
-          occaecat nostrud fugiat mollit duis incididunt veniam nostrud.
-          Excepteur id proident et in excepteur dolor quis nisi et voluptate
-          laborum sint. Consequat ex minim laborum minim duis irure et irure
-          cupidatat non reprehenderit mollit. Qui pariatur labore ex sit eiusmod
-          minim. Aliqua proident quis velit mollit est eu nulla mollit mollit
-          occaecat. Est irure nulla qui ipsum irure enim irure aliquip deserunt
+          Karabakh Truths is a simple news website created in 2020 by
+          Azerbaijanian youth.But this news website is showing you the truth
+          itself differently than others
         </Typography>
       </List>
     </>

@@ -70,7 +70,6 @@ export default class Trending extends Component {
             return (
               <div className="parent-card-item" key={post.data.link}>
                 <Link to={`/news/${post.data.link}`}>
-                  {" "}
                   <div className="card-item">
                     <div className="image-container">
                       <Image alt={post.data.link} src={post.data.image} />

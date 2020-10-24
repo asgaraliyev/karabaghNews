@@ -8,7 +8,6 @@ import {
   Switch,
 } from "react-router-dom";
 import HomePage from "./Screens/HomePage/HomePage";
-import SearchPage from "./Screens/SearchPage/SearchPage";
 import ACatagory from "./Screens/ACatagory/ACatagory";
 import ANews from "./Screens/aNews/ANews";
 import "./main.scss";
@@ -53,9 +52,6 @@ function App() {
           <Switch>
             <Route exact path="/">
               <HomePage></HomePage>
-            </Route>
-            <Route exact path="/search">
-              <SearchPage></SearchPage>
             </Route>
             <Route exact path="/catagory/:catagoryName/">
               <ACatagory></ACatagory>

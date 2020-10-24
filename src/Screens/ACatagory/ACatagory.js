@@ -10,10 +10,14 @@ import OtherNews from "../../Components/OtherNews/OtherNews";
 import { change_Catagories } from "../../Redux/Actions/";
 import GettingCatagories from "../../Functions/GettingCatagories";
 import GettingCatagoryPosts from "../../Functions/GettingCatagoryPosts";
-
 export default function ACatagory() {
   const catagories = useSelector((state) => state.catagories);
   const [cPosts, setCPosts] = useState([]);
+  const [trendingPosts, setTrending] = useState([]);
+  const [otherNewsPosts, setOtherNews] = useState([]);
+  const [fullWidthPostOne, setFullWidthPostOne] = useState(null);
+  const [fullWidthPostTwo, setFullWidthPostTwo] = useState(null);
+  const [secondNewsContainer, setsecondNewsContainer] = useState(null);
   var { catagoryName } = useParams();
   const dispatch = useDispatch();
   useEffect(() => {
@@ -23,11 +27,27 @@ export default function ACatagory() {
         catagoryName = catagories[0];
       }
     });
-    GettingCatagoryPosts(catagoryName).then((cPosts) => {
-      setCPosts(cPosts);
+    GettingCatagoryPosts(catagoryName).then((posts) => {
+      setCPosts(posts);
+      posts.sort(function (a, b) {
+        return b.data.time.seconds - a.data.time.seconds;
+      });
+      if (posts[0]) {
+        setFullWidthPostOne(posts[0]);
+      }
+      if (posts[1]) {
+        setFullWidthPostTwo(posts[1]);
+      }
+      if (posts[2] && posts[3] && posts[4]) {
+        setsecondNewsContainer([posts[2], posts[3], posts[4]]);
+      }
+      if (posts[5] && posts[6] && posts[7] && posts[8] && posts[9] && posts[10]) {
+        setTrending([posts[5] , posts[6], posts[7] , posts[8] , posts[9] , posts[10]]);
+      }
+      posts = posts.slice(10, posts.length);
+      setOtherNews(posts)
     });
   }, []);
-
   return (
     <div>
       <Header
@@ -36,32 +56,38 @@ export default function ACatagory() {
           title: catagoryName,
         }}
       ></Header>
+
       <div id="second-responsive-div">
         <div id="responsive-div">
-          <FullWidthNews
-            title="sea"
-            time="2 horuse ago"
-            width={true}
-            imageLink="https://www.paralympic.org/sites/default/files/styles/image_crop_16_9_800_450/public/2020-10/GettyImages-1173826669.jpg?itok=TXgTQOsX"
-          ></FullWidthNews>
-
-          <SecondNews></SecondNews>
+          {fullWidthPostOne !== null ? (
+            <FullWidthNews
+              title={fullWidthPostOne.data.title}
+              time={fullWidthPostOne.date}
+              width={true}
+              imageLink={fullWidthPostOne.data.image}
+            ></FullWidthNews>
+          ) : null}
+          {secondNewsContainer !== null ? (
+            <SecondNews posts={secondNewsContainer}></SecondNews>
+          ) : null}
         </div>
-        <FullWidthNews
-          title="sea"
-          time="2 horuse ago"
-          width={true}
-          imageLink="https://www.paralympic.org/sites/default/files/styles/image_crop_16_9_800_450/public/2020-10/GettyImages-1173826669.jpg?itok=TXgTQOsX"
-        ></FullWidthNews>
+        {fullWidthPostTwo !== null ? (
+          <FullWidthNews
+            title={fullWidthPostTwo.data.title}
+            time={fullWidthPostTwo.date}
+            width={true}
+            imageLink={fullWidthPostTwo.data.image}
+          ></FullWidthNews>
+        ) : null}
       </div>
 
       <br></br>
       <br></br>
-      <Trending posts={cPosts}></Trending>
+      <Trending posts={trendingPosts}></Trending>
 
       <br></br>
       <br></br>
-      <OtherNews posts={cPosts}></OtherNews>
+      <OtherNews posts={otherNewsPosts}></OtherNews>
     </div>
   );
 }

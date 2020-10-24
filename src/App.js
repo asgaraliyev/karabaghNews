@@ -73,7 +73,7 @@ function App() {
 }
 
 // screen if you're not yet authenticated.
-function PrivateRoute({ children, user, ...rest }) {
+function PrivateRoute({ children, user }) {
   if (user == null) {
     return (
       <div>
@@ -89,7 +89,6 @@ function PrivateRoute({ children, user, ...rest }) {
     }
     return (
       <Route
-        {...rest}
         render={({ location }) =>
           isAdminLogedIn ? (
             children

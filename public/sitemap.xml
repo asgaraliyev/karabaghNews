@@ -1,12 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-    <url>
-        <loc>https://karabakh-news.herokuapp.com/</loc>
-    </url>
-    <url>
-        <loc>https://karabakh-news.herokuapp.com/catagory/:catagoryName</loc>
-    </url>
-    <url>
-        <loc>https://karabakh-news.herokuapp.com/news/:newsName</loc>
-    </url>
+<url> <loc>https://karabakh-news.herokuapp.com/</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/catagory</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/catagory/Politics</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/catagory/Latino</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/catagory/World</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/catagory/Business</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/catagory/Tech</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/catagory/Nbcblk</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/catagory/Us-news</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/catagory/Obituaries</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/catagory/Asian-america</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/catagory/Health</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/catagory/Feature</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/catagory/Video</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/catagory/Profootballtalk.nbcsports.com</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/catagory/Shopping</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/catagory/China</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/catagory/Sports</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/catagory/All</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/catagory/Dateline</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/3-largest-wildfires-colorado-history-have-occurred-2020-n1244525</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/4-takeaways-last-presidential-debate-2020-n1244383</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/apple-announces-cast-its-pachinko-series-n1244539</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/asian-american-vote-carries-newfound-weight-swing-state-n-c-n1244365</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/astrazeneca-johnson-johnson-resume-late-stage-covid-19-vaccine-trials-n1244579</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/ballots-can-t-be-tossed-out-over-voter-signature-court-n1244585</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/battleground-postal-delays-persist-mail-voting-underway-n1244550</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/best-retinol-creams-serums-acne-wrinkles-n1244298</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/biden-win-would-lift-mexico-u-s-ties-energy-canary-n1244524</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/black-couple-didn-t-provoke-shooting-police-relative-says-n1244532</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/boogaloo-bois-member-charged-connection-shooting-minneapolis-police-station-during-n1244562</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/brazilian-indigenous-leader-alessandra-korap-wins-robert-kennedy-rights-award-n1244526</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/buehler-leads-dodgers-over-rays-2-1-series-lead-n1244621</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/china-s-xi-vows-speed-army-modernization-tensions-u-s-n1244485</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/confederate-monument-removed-alabama-courthouse-n1244527</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/convicted-nxivm-sex-cult-figure-says-he-s-innocent-n1244604</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/coronavirus-case-increase-sets-new-u-s-record-rising-over-n1244490</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/debate-fact-check-trump-biden-face-final-debate-n1244367</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/delta-adds-460-passengers-who-refused-masks-no-fly-list-n1244573</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/dispute-over-ohio-mail-ballot-drop-box-limit-ends-advocates-n1244584</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/elderly-couple-who-told-family-they-wouldn-t-evacuate-killed-n1244620</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/family-hiker-missing-2-weeks-mount-rainier-park-pushes-search-n1244616</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/family-still-fighting-justice-16-years-after-2004-murder-courtney-n1244602</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/fauci-says-coronavirus-infections-swell-federal-task-force-meeting-just-n1244571</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/final-debate-biden-shows-trump-what-it-means-be-politician-n1244498</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/final-trump-biden-debate-finally-provides-clarity-issues-n1244503</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/gay-male-penguins-steal-lesbian-couple-s-eggs-dutch-zoo-n1244575</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/georgette-gomez-could-make-history-first-queer-latina-congress-n1244502</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/germany-grapples-coronavirus-spike-months-after-it-was-hailed-good-n1244275</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/holiday-bubble-checklist-offers-tips-lower-covid-19-risk-winter-n1244299</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/home-stretch-signs-trump-s-hard-sell-seniors-pitch-may-n1244167</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/how-kristi-yamaguchi-improving-literacy-pacific-islander-latino-kids-amid-n1244597</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/how-one-teacher-s-black-lives-matter-lesson-divided-small-n1244566</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/increasing-minimum-wage-would-help-not-hurt-economy-n1244586</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/inside-campaign-pizzagate-hunter-biden-n1244331</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/it-has-be-replaced-trump-seizes-biden-s-oil-industry-n1244561</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/judge-tosses-trump-challenge-new-jersey-mail-ballots-n1244501</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/juli-n-castro-latino-voters-are-driver-s-seat-never-n1244384</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/legal-limbo-hundreds-louisville-protesters-still-waiting-learn-their-fate-n1244012</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/man-van-full-guns-had-checklist-execute-joe-biden-authorities-n1244394</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/man-who-supplied-weapons-san-bernardino-terror-attack-gets-20-n1244606</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/minari-star-steven-yeun-could-become-first-asian-american-best-n1244593</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/minnesota-ag-investigates-company-accused-recruiting-armed-guards-election-day-n1244514</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/missing-painting-renowned-black-artist-rediscovered-after-60-years-n1244536</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/more-100-coronavirus-cases-3-deaths-linked-north-carolina-church-n1244574</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/new-apple-ipad-air-n1244540</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/north-carolina-gop-asks-supreme-court-roll-back-extra-time-n1244368</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/not-magic-democrats-work-make-inroads-south-first-time-decades-n1244580</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/obamacare-must-die-biden-says-hell-make-it-into-bidencare</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/our-lady-guadalupe-california-priest-brings-hope-farmworkers-amid-covid-n1244516</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/pandemic-shopping-list-dolls-detergent-campers-n1244557</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/poland-s-president-andrzej-duda-tests-positive-coronavirus-n1244622</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/polish-lgbtq-activists-see-hope-pope-s-support-gay-civil-n1244529</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/power-outages-planned-nearly-500-000-california-braces-more-fires-n1244619</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/presidential-debate-tracker-october-2020-n1244359</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/ransomware-hit-georgia-county-didn-t-stop-its-ballot-counting-n1244601</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/ratings-drop-final-presidential-debate-63-million-viewers-n1244594</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/republican-house-candidate-s-website-attacks-critic-going-work-non-n1244531</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/same-state-different-sides-pennsylvania-small-business-owners-reflect-past-n1244374</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/scott-peterson-who-killed-pregnant-wife-laci-should-again-get-n1244538</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/southwest-airlines-start-unblocking-middle-seats-holiday-travel-n1244353</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/sudan-formally-recognizes-israel-u-s-brokered-deal-n1240839</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/tiny-taiwan-caught-middle-u-s-china-battle-supremacy-n1244521</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/transformational-environmental-justice-advocates-see-hope-debate-discussion-n1244607</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/treasure-seeker-charged-damaging-yellowstone-during-hunt-forrest-fenn-prize-n1244409</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/trump-admin-considers-branding-amnesty-international-other-human-rights-groups-n1244335</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/trump-administration-really-working-very-hard-reunite-migrant-parents-children-n1244530</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/u-s-joins-global-anti-abortion-pact-polish-women-march-n1244487</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/uber-lyft-likely-violated-california-labor-law-appeals-court-finds-n1244386</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/voter-outreach-south-asian-languages-ramps-election-n1244349</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/voters-could-remove-racist-phrases-alabama-constitution-n1244533</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/wages-was-most-searched-issue-google-during-final-trump-biden-n1244547</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/washington-state-discovers-first-murder-hornet-nest-u-s-n1244565</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/we-are-fighting-survival-black-essential-workers-head-ballot-box-n1244326</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/white-teen-pleads-guilty-plot-attack-black-churchgoers-georgia-n1244523</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/who-won-trump-biden-debate-experts-grade-candidates-n1244481</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/wisconsin-breaks-new-covid-19-records-hospitals-brace-flu-season-n1244613</loc> </url>
+<url> <loc>https://karabakh-news.herokuapp.com/news/young-latino-voters-pennsylvania-florida-could-tilt-race-trump-biden-n1244492</loc> </url>
 </urlset>

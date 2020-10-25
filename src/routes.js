@@ -7,6 +7,5 @@ export default (
 		<Route path='/' />
 		<Route path='/catagory/:catagoryName/' />
 		<Route path='/news/:newsName' />
-		<Route /> // No-match case
 	</Switch>
 );

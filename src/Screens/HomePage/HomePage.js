@@ -6,8 +6,7 @@ import Authors from "./Authors/Authors";
 import EditorChoise from "./EditorChoise/EditorChoise";
 import OtherNews from "../../Components/OtherNews/OtherNews";
 import getting_Posts_Function from "../../Functions/GettingPosts";
-// import getting_Avarage_Population from "../../Functions/AvaragePopulation";
-
+import getting_Avarage_Population from "../../Functions/AvaragePopulation";
 export default class HomePage extends Component {
   constructor(props) {
     super(props);
@@ -36,7 +35,6 @@ export default class HomePage extends Component {
   componentDidMount() {
     const self = this;
 
-    document.title = "Karabakh Truths";
     getting_Posts_Function().then((posts) => {
       self.setState(
         (self.state = {

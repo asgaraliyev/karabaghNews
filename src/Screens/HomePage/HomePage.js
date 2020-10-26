@@ -7,8 +7,9 @@ import EditorChoise from "./EditorChoise/EditorChoise";
 import OtherNews from "../../Components/OtherNews/OtherNews";
 import getting_Posts_Function from "../../Functions/GettingPosts";
 // import getting_Avarage_Population from "../../Functions/AvaragePopulation";
-ReactGA.initialize('G-HFNCTD8WT0');
 import ReactGA from 'react-ga';
+ReactGA.initialize('G-HFNCTD8WT0');
+
 export default class HomePage extends Component {
   constructor(props) {
     super(props);

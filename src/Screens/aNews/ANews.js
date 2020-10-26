@@ -53,11 +53,11 @@ export default function ANews() {
   const [relatedPosts, setRelatedPosts] = useState([]);
 
   useEffect(() => {
-    console.log("worked");
     GettingPosts().then((posts) => {
       posts.map((post) => {
         if (post.data.link === newsName) {
           setTheNews(post);
+          document.title = post.data.title;
           var allRelatedPosts = [];
           posts.map((altPost) => {
             if (altPost.data.catagory === post.data.catagory) {

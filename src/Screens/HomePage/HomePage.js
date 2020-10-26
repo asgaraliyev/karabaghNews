@@ -33,7 +33,7 @@ export default class HomePage extends Component {
   }
   componentDidMount() {
     const self = this;
-
+    document.title="Karabakh Truths"
     getting_Posts_Function().then((posts) => {
       self.setState(
         (self.state = {

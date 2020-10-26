@@ -26,6 +26,7 @@ export default function ACatagory() {
       if (!catagories.includes(catagoryName)) {
         catagoryName = catagories[0];
       }
+      document.title = `${catagoryName} News`;
     });
     GettingCatagoryPosts(catagoryName).then((posts) => {
       setCPosts(posts);
@@ -41,11 +42,25 @@ export default function ACatagory() {
       if (posts[2] && posts[3] && posts[4]) {
         setsecondNewsContainer([posts[2], posts[3], posts[4]]);
       }
-      if (posts[5] && posts[6] && posts[7] && posts[8] && posts[9] && posts[10]) {
-        setTrending([posts[5] , posts[6], posts[7] , posts[8] , posts[9] , posts[10]]);
+      if (
+        posts[5] &&
+        posts[6] &&
+        posts[7] &&
+        posts[8] &&
+        posts[9] &&
+        posts[10]
+      ) {
+        setTrending([
+          posts[5],
+          posts[6],
+          posts[7],
+          posts[8],
+          posts[9],
+          posts[10],
+        ]);
       }
       posts = posts.slice(10, posts.length);
-      setOtherNews(posts)
+      setOtherNews(posts);
     });
   }, []);
   return (

@@ -5,6 +5,7 @@ import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
 import SuperMarket from "./Redux/SuperMarket/SuperMarket";
 import ScrollToTop from "./ScrollToTop";
+
 ReactDOM.render(
   <Provider store={SuperMarket}>
     <React.StrictMode>

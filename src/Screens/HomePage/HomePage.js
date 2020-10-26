@@ -7,9 +7,6 @@ import EditorChoise from "./EditorChoise/EditorChoise";
 import OtherNews from "../../Components/OtherNews/OtherNews";
 import getting_Posts_Function from "../../Functions/GettingPosts";
 // import getting_Avarage_Population from "../../Functions/AvaragePopulation";
-import ReactGA from "react-ga";
-console.log(ReactGA,"ReactGA");
-ReactGA.initialize("G-250509579");
 
 export default class HomePage extends Component {
   constructor(props) {
@@ -38,9 +35,6 @@ export default class HomePage extends Component {
   }
   componentDidMount() {
     const self = this;
-    console.log(
-      ReactGA.pageview(window.location.pathname + window.location.search),"sea"
-    );
 
     document.title = "Karabakh Truths";
     getting_Posts_Function().then((posts) => {

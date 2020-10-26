@@ -21,7 +21,8 @@ import Dashboard from "./Screens/AdminPanel/Dashboard/Dashboard";
 // import SuperMarket from "./Redux/SuperMarket/SuperMarket";
 import ScrollToTop from "./ScrollToTop";
 import TheDialog from "./Screens/AdminPanel/Dashboard/Components/Components/DialogForContents";
-
+import ReactGA from "react-ga";
+ReactGA.initialize("G-250509579");
 function App() {
   var theMenu = useSelector((state) => state.theMenu.menuIsOpen);
   const dispatch = useDispatch();
@@ -42,6 +43,9 @@ function App() {
       setUser(false);
     }
   });
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
   return (
     <Router history={History}>
       <ScrollToTop></ScrollToTop>

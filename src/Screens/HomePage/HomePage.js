@@ -8,7 +8,7 @@ import OtherNews from "../../Components/OtherNews/OtherNews";
 import getting_Posts_Function from "../../Functions/GettingPosts";
 // import getting_Avarage_Population from "../../Functions/AvaragePopulation";
 import ReactGA from 'react-ga';
-ReactGA.initialize('G-HFNCTD8WT0');
+ReactGA.initialize('G-HLSH5VFDQP');
 
 export default class HomePage extends Component {
   constructor(props) {

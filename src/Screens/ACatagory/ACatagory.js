@@ -77,6 +77,7 @@ export default function ACatagory() {
           {fullWidthPostOne !== null ? (
             <FullWidthNews
               title={fullWidthPostOne.data.title}
+              link={fullWidthPostOne.data.link}
               time={fullWidthPostOne.date}
               width={true}
               imageLink={fullWidthPostOne.data.image}
@@ -90,6 +91,7 @@ export default function ACatagory() {
           <FullWidthNews
             title={fullWidthPostTwo.data.title}
             time={fullWidthPostTwo.date}
+            link={fullWidthPostOne.data.link}
             width={true}
             imageLink={fullWidthPostTwo.data.image}
           ></FullWidthNews>

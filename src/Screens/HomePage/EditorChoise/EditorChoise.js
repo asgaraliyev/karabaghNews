@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./scss/style.scss";
-import Image from "material-ui-image";
 import { makeStyles } from "@material-ui/core/styles";
 import MedalIcon from "../../../Icons/MedalIcon";
 import Avatar from "@material-ui/core/Avatar";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import ANewsContainer from "../../../Components/aNewsContainer/aNewsContainer";
+import { Link } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -77,43 +77,47 @@ export default function EditorChoise(props) {
       {thePostItSelf !== null ? (
         <div id="editor-choise">
           <div className="photo side">
-            <ANewsContainer
-              width={true}
-              content={false}
-              imageLink={thePostItSelf.data.image}
-            ></ANewsContainer>
+            <Link to={`/news/${thePostItSelf.data.link}`}>
+              <ANewsContainer
+                width={true}
+                content={false}
+                imageLink={thePostItSelf.data.image}
+              ></ANewsContainer>
+            </Link>
           </div>
           <div className="content side">
-            <div>
-              <MedalIcon
-                info={{
-                  classNamee: "",
-                  fill: "",
-                  width: "20px",
-                  height: "20px",
-                }}
-              ></MedalIcon>
-              <p className="editor-choice">Editor Choice</p>
-            </div>
-            <div>
-              <h4 className="title">{thePostItSelf.data.title}</h4>
-              <p className="description">{description}</p>
-            </div>
-            <div className="about-author">
-              <span className="display-inline-block">
-                <Avatar
-                  alt={thePostItSelf.data.author}
-                  src={avatarPhoto}
-                  className={classes.small}
-                />
-              </span>
-              <span className="display-inline-block">
-                <p className="profile-title">{thePostItSelf.data.author}</p>
-              </span>
-              <span className="display-inline-block icon">
-                <MoreHorizIcon></MoreHorizIcon>
-              </span>
-            </div>
+            <Link to={`/news/${thePostItSelf.data.link}`}>
+              <div>
+                <MedalIcon
+                  info={{
+                    classNamee: "",
+                    fill: "",
+                    width: "20px",
+                    height: "20px",
+                  }}
+                ></MedalIcon>
+                <p className="editor-choice">Editor Choice</p>
+              </div>
+              <div>
+                <h4 className="title">{thePostItSelf.data.title}</h4>
+                <p className="description">{description}</p>
+              </div>
+              <div className="about-author">
+                <span className="display-inline-block">
+                  <Avatar
+                    alt={thePostItSelf.data.author}
+                    src={avatarPhoto}
+                    className={classes.small}
+                  />
+                </span>
+                <span className="display-inline-block">
+                  <p className="profile-title">{thePostItSelf.data.author}</p>
+                </span>
+                <span className="display-inline-block icon">
+                  <MoreHorizIcon></MoreHorizIcon>
+                </span>
+              </div>
+            </Link>
           </div>
         </div>
       ) : null}

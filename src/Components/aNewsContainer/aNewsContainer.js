@@ -52,5 +52,7 @@ ANewsContainer.defaultProps = {
   time: null,
   imageLink:
     "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTYrbT4C-b0UceJVk4Szi4NVBKxXC517hGb3Q&usqp=CAU",
+    // TODOO Not found Image from static
   content: true,
 };
+ 

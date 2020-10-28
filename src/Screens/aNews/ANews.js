@@ -15,6 +15,7 @@ import GettingPosts from "../../Functions/GettingPosts";
 import { Avatar } from "@material-ui/core";
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import ReactTimeAgo from "react-time-ago";
+import Loader from "../../Images/loader.webp";
 export default function ANews() {
   var { newsName } = useParams();
   const moreThansixhundred = useMediaQuery({ query: "(min-width: 600px)" });
@@ -40,8 +41,7 @@ export default function ANews() {
       author: "",
       body: "",
       catagory: "",
-      image:
-        "https://i.pinimg.com/originals/1a/e0/90/1ae090fce667925b01954c2eb72308b6.gif",
+      image: Loader,
       time: "",
       title: "Loading..",
       link: "",

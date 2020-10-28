@@ -54,8 +54,7 @@ export default class SearchArea extends Component {
       });
     };
     const closeDrawer = (link) => {
-      SuperMarket.dispatch(change_Menu_Stuation_Action(null))
-
+      SuperMarket.dispatch(change_Menu_Stuation_Action(null));
     };
     return (
       <>
@@ -95,6 +94,7 @@ export default class SearchArea extends Component {
                           <ListItemIcon
                             style={{
                               flex: 1,
+                              paddingLeft: "51px",
                             }}
                           >
                             <CallMadeIcon></CallMadeIcon>

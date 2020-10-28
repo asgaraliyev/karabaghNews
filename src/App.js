@@ -22,6 +22,8 @@ import Dashboard from "./Screens/AdminPanel/Dashboard/Dashboard";
 import ScrollToTop from "./ScrollToTop";
 import TheDialog from "./Screens/AdminPanel/Dashboard/Components/Components/DialogForContents";
 import ReactGA from "react-ga";
+import NotFound from "./Screens/NotFound/NotFound";
+import { Spin } from "antd";
 ReactGA.initialize("G-250509579");
 function App() {
   var theMenu = useSelector((state) => state.theMenu.menuIsOpen);
@@ -31,7 +33,7 @@ function App() {
   } else {
     document.body.classList.remove("hidden");
   }
-
+  const [loader, setLoader] = useState(true);
   if (ls.get("theDrawer")) {
     theMenu = true;
   }
@@ -44,6 +46,7 @@ function App() {
     }
   });
   useEffect(() => {
+    setLoader(false);
     ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
   return (
@@ -69,8 +72,19 @@ function App() {
             <PrivateRoute user={user} path="/admin-panel">
               <Dashboard></Dashboard>
             </PrivateRoute>
+            <Route exact path="*">
+              <NotFound></NotFound>
+            </Route>
           </Switch>
         </main>
+        {loader === true ? (
+          <div id="loading-area">
+            <h3>Karabakh Truths</h3>
+            <br></br>
+            <br></br>
+            <Spin spinning={loader}></Spin>
+          </div>
+        ) : null}
       </div>
     </Router>
   );

@@ -7,6 +7,9 @@ import EditorChoise from "./EditorChoise/EditorChoise";
 import OtherNews from "../../Components/OtherNews/OtherNews";
 import getting_Posts_Function from "../../Functions/GettingPosts";
 import getting_Avarage_Population from "../../Functions/AvaragePopulation";
+import Loader from "../../Images/loader.webp";
+import ReactGA from "react-ga";
+ReactGA.initialize("G-250509579");
 export default class HomePage extends Component {
   constructor(props) {
     super(props);
@@ -19,8 +22,7 @@ export default class HomePage extends Component {
           body: "Loading...",
           catagory: "Loading...",
           // TODO put a loading image to here from website itself
-          image:
-            "https://i.pinimg.com/originals/1a/e0/90/1ae090fce667925b01954c2eb72308b6.gif",
+          image: Loader,
           link: String(i),
           title: "Loading...",
         },
@@ -34,7 +36,7 @@ export default class HomePage extends Component {
   }
   componentDidMount() {
     const self = this;
-
+    ReactGA.pageview(window.location.pathname + window.location.search);
     getting_Posts_Function().then((posts) => {
       self.setState(
         (self.state = {

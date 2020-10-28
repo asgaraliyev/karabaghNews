@@ -5,7 +5,6 @@
     list-style: none;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
 * {
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
@@ -69,4 +68,19 @@
   }
 .ant-notification-topRight{
     z-index: 2000!important;
+}
+#loading-area{
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    z-index: 9999999;
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align: center;
+    flex-direction: column;
 }

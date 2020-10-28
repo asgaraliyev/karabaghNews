@@ -16,6 +16,8 @@ import { Avatar } from "@material-ui/core";
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import ReactTimeAgo from "react-time-ago";
 import Loader from "../../Images/loader.webp";
+import ReactGA from "react-ga";
+ReactGA.initialize("G-250509579");
 export default function ANews() {
   var { newsName } = useParams();
   const moreThansixhundred = useMediaQuery({ query: "(min-width: 600px)" });
@@ -58,6 +60,8 @@ export default function ANews() {
         if (post.data.link === newsName) {
           setTheNews(post);
           document.title = post.data.title;
+          console.log(window.location.pathname);
+          ReactGA.pageview(window.location.pathname);
           var allRelatedPosts = [];
           posts.map((altPost) => {
             if (altPost.data.catagory === post.data.catagory) {

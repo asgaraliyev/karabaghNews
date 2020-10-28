@@ -36,7 +36,7 @@ export default class HomePage extends Component {
   }
   componentDidMount() {
     const self = this;
-    ReactGA.pageview(window.location.pathname + window.location.search);
+    ReactGA.pageview(window.location.pathname);
     getting_Posts_Function().then((posts) => {
       self.setState(
         (self.state = {

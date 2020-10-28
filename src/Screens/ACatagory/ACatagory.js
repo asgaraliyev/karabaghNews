@@ -10,6 +10,8 @@ import OtherNews from "../../Components/OtherNews/OtherNews";
 import { change_Catagories } from "../../Redux/Actions/";
 import GettingCatagories from "../../Functions/GettingCatagories";
 import GettingCatagoryPosts from "../../Functions/GettingCatagoryPosts";
+import ReactGA from "react-ga";
+ReactGA.initialize("G-250509579");
 export default function ACatagory() {
   const catagories = useSelector((state) => state.catagories);
   const [cPosts, setCPosts] = useState([]);
@@ -27,6 +29,7 @@ export default function ACatagory() {
         catagoryName = catagories[0];
       }
       document.title = `${catagoryName} News`;
+      ReactGA.pageview(window.location.pathname);
     });
     GettingCatagoryPosts(catagoryName).then((posts) => {
       setCPosts(posts);

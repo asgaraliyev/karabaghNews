@@ -47,7 +47,9 @@ function App() {
   });
   useEffect(() => {
     setLoader(false);
-    ReactGA.pageview(window.location.pathname + window.location.search);
+    console.log(
+      ReactGA.pageview(window.location.pathname),"sea"
+    );
   }, []);
   return (
     <Router history={History}>

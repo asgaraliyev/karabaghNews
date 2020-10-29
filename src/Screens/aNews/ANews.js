@@ -17,7 +17,7 @@ import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import ReactTimeAgo from "react-time-ago";
 import Loader from "../../Images/loader.webp";
 import ReactGA from "react-ga";
-import { createBrowserHistory } from 'history';
+import { createBrowserHistory } from "history";
 ReactGA.initialize("G-250509579");
 export default function ANews() {
   var { newsName } = useParams();
@@ -60,10 +60,24 @@ export default function ANews() {
       var isNewsFound = false;
       posts.map((post) => {
         if (post.data.link === newsName) {
-          isNewsFound=true
+          isNewsFound = true;
           setTheNews(post);
 
           document.title = post.data.title;
+          document
+            .querySelector('meta[name="title"]')
+            .setAttribute("content", post.data.title);
+          var keywords = post.data.title;
+          keywords = keywords.toLowerCase();
+          keywords = keywords.replace("-", " ").split(" ");
+          var listOfKeywords = [];
+          keywords.map(function (keyword) {
+            listOfKeywords.push(keyword + ",");
+          });
+
+          document
+            .querySelector('meta[name="keywords"]')
+            .setAttribute("content", keywords);
           ReactGA.pageview(window.location.pathname);
           var allRelatedPosts = [];
           posts.map((altPost) => {
@@ -74,9 +88,9 @@ export default function ANews() {
           setRelatedPosts(allRelatedPosts);
         }
       });
-      if(!isNewsFound){
-        const history=createBrowserHistory()
-        history.push("/NotFound")
+      if (!isNewsFound) {
+        const history = createBrowserHistory();
+        history.push("/NotFound");
         this.forceUpdate();
       }
     });

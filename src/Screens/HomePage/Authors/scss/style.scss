@@ -7,13 +7,20 @@ $orange:#CB822E;
     position: relative;
     display: inline;
 
-    .author {
+    .red {
+        background: $orange
+    }
+
+    .blue {
         background: $blue;
+    }
+
+    .author {
 
 
 
         @media only screen and (max-width: 600px) {
-            max-width: 70vw;
+            max-width: 78vw;
 
         }
 
@@ -44,9 +51,11 @@ $orange:#CB822E;
             flex-direction: column;
             justify-content: center;
             padding: 0px 5px;
-            time{
+
+            time {
                 font-size: xx-small;
             }
+
             h5 {
                 color: white;
 

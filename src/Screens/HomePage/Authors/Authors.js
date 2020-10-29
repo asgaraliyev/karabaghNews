@@ -63,11 +63,19 @@ export default function Authors({ posts }) {
   return (
     <div id="authors-slider">
       <Slider {...Slider_Settings}>
-        {posts.map((post) => {
+        {posts.map((post, index) => {
+          var background_Color = "blue";
+          if (index % 2 == 0) {
+            background_Color = "red";
+          }
+          console.log(background_Color);
           if (post.data.isAuthor) {
-            console.log("Authors -> post", post);
             return (
-              <div key={post.data.link} className="author">
+              <div
+                key={post.data.link}
+                style={{ background: background_Color }}
+                className={`author ${background_Color}`}
+              >
                 <Link to={`/news/${post.data.link}`}>
                   <span className="profile-photo">
                     <div className={classes.root}>

@@ -18,10 +18,10 @@
             }
 
             li {
-                margin: 20px 0px;
+                margin: 10px 0px;
                 width: 100%;
                 background: white;
-                border-radius: 20px;
+                border-radius: 10px;
                 height: 220px;
                 overflow: hidden;
                 box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.486);
@@ -40,31 +40,45 @@
                     display: flex;
                     justify-content: space-around;
                     height: 100%;
-                    padding: 10px;
+                    padding: 4px 7px;
                     position: relative;
 
                     @media only screen and (max-width: 600px) {
                         flex-direction: column;
+
                     }
+
+                    @media only screen and (min-width: 600px) {
+                        padding: 7px;
+
+
+                    }
+
 
                     .side {
                         flex: 1;
-                        padding-bottom: 21px;
 
                         .content {
-                            padding: 10px;
+                            padding: 2px 2px 9px 2px;
+
+                            @media only screen and (min-width: 600px) {
+                                padding: 20px;
+
+                            }
 
                             h5 {
                                 font-weight: bold;
                                 font-size: 0.9em;
+                                margin-bottom: 4px;
                             }
 
                             .description {
                                 font-size: x-small;
                                 color: #434343;
+                                margin: 0px;
                             }
 
-                            .time {
+                            time {
                                 font-size: x-small;
                                 color: #999898;
                             }

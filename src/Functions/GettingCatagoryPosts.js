@@ -9,10 +9,7 @@ const getting_Catagory_Posts = async (catagoryName) => {
       var theData = [];
       posts.forEach(function (post) {
         if (post.data().catagory === catagoryName) {
-          console.log(
-            "getting_Catagory_Posts -> post.data().catagory",
-            post.data().catagory
-          );
+         
           var info = {
             data: post.data(),
             date: post.data().time.toDate(),

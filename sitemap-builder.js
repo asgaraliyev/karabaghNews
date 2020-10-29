@@ -47,6 +47,6 @@ db.collection("catagories")
           .filterPaths(filterConfig)
           .applyParams(paramsConfig)
           .build("https://karabakh-news.herokuapp.com")
-          .save("./public/sitemap.xml", "/static/");
+          .save("./public/sitemap.xml");
       });
   });

@@ -17,6 +17,7 @@ import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import ReactTimeAgo from "react-time-ago";
 import Loader from "../../Images/loader.webp";
 import ReactGA from "react-ga";
+import { createBrowserHistory } from 'history';
 ReactGA.initialize("G-250509579");
 export default function ANews() {
   var { newsName } = useParams();
@@ -56,11 +57,13 @@ export default function ANews() {
 
   useEffect(() => {
     GettingPosts().then((posts) => {
+      var isNewsFound = false;
       posts.map((post) => {
         if (post.data.link === newsName) {
+          isNewsFound=true
           setTheNews(post);
+
           document.title = post.data.title;
-          console.log(window.location.pathname);
           ReactGA.pageview(window.location.pathname);
           var allRelatedPosts = [];
           posts.map((altPost) => {
@@ -71,6 +74,11 @@ export default function ANews() {
           setRelatedPosts(allRelatedPosts);
         }
       });
+      if(!isNewsFound){
+        const history=createBrowserHistory()
+        history.push("/NotFound")
+        this.forceUpdate();
+      }
     });
   }, [newsName]);
   console.log(theNews.date, "sea");

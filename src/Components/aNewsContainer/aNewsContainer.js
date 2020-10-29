@@ -30,7 +30,6 @@ export default class ANewsContainer extends Component {
               {time !== null ? (
                 <ReactTimeAgo style={{fontSize:"0.8em"}} date={time} locale="az-Az" timeStyle="round" />
               ) : null}
-              <p></p>
             </div>
           </div>
         )}

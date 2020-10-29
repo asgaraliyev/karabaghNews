@@ -78,6 +78,9 @@ export default function ANews() {
           document
             .querySelector('meta[name="keywords"]')
             .setAttribute("content", keywords);
+          document
+            .querySelector('meta[name="description"]')
+            .setAttribute("content", post.data.title);
           ReactGA.pageview(window.location.pathname);
           var allRelatedPosts = [];
           posts.map((altPost) => {

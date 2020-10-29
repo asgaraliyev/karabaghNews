@@ -103,7 +103,7 @@ export default function ACatagory() {
           <FullWidthNews
             title={fullWidthPostTwo.data.title}
             time={fullWidthPostTwo.date}
-            link={fullWidthPostOne.data.link}
+            link={fullWidthPostTwo.data.link}
             width={true}
             imageLink={fullWidthPostTwo.data.image}
           ></FullWidthNews>

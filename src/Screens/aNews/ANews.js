@@ -54,7 +54,7 @@ export default function ANews() {
 
   const [theNews, setTheNews] = useState(thePost);
   const [relatedPosts, setRelatedPosts] = useState([]);
-
+  const [heightOfNews, setHeightOfNews] = useState(300);
   useEffect(() => {
     GettingPosts().then((posts) => {
       var isNewsFound = false;
@@ -96,9 +96,9 @@ export default function ANews() {
         history.push("/NotFound");
         this.forceUpdate();
       }
+      setHeightOfNews(document.getElementById("main-news").clientHeight);
     });
   }, [newsName]);
-  console.log(theNews.date, "sea");
   return (
     <div id="a-news">
       <Header
@@ -150,7 +150,7 @@ export default function ANews() {
           <div className="news-content-side">
             <div className="to-top">
               <div className="to-expand" id="a-news-content">
-                <h2>{theNews.data.title}</h2>
+                <h1>{theNews.data.title}</h1>
                 <br></br>
 
                 <Typography>
@@ -174,56 +174,59 @@ export default function ANews() {
                   known until today," he said.
                 </Typography> */}
                 <br></br>
-                {theNews.date !== null ? (
-                  <div id="social-media-for-a-post">
-                    <h3>Share this post</h3>
-                    <br></br>
-                    <div className="socials">
-                      <a
-                        href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.origin}/news/${theNews.data.link}`}
-                        className="social facebook "
-                        data-href={`${window.location.origin}/news/${theNews.data.link}`}
-                        data-layout="button"
-                        data-size="small"
-                      >
-                        <span className="icon">
-                          <FacebookIcon></FacebookIcon>
-                        </span>
-                        <span className="the-text">Facebook</span>
-                      </a>
-                      <a
-                        className="social twitter"
-                        title="Share on twitter"
-                        href={`https://twitter.com/intent/tweet?url=${window.location.origin}/news/${theNews.data.link}`}
-                        rel="noopener"
-                      >
-                        <span className="icon">
-                          <TwitterIcon></TwitterIcon>
-                        </span>
-                        <span className="the-text">Twitter</span>
-                      </a>
-                      <a
-                        className="social whatsapp"
-                        href={`whatsapp://send?text=${window.location.origin}/news/${theNews.data.link}`}
-                        data-action="share/whatsapp/share"
-                      >
-                        <span className="icon">
-                          <WhatsAppIcon></WhatsAppIcon>
-                        </span>
-                        <span className="the-text">Whatsapp</span>
-                      </a>
-                    </div>
-                    <br></br>
-                    <h3>Related Posts</h3>
-                    <Trending posts={relatedPosts}></Trending>
-                    <OtherNews posts={relatedPosts}></OtherNews>
-                  </div>
-                ) : null}
               </div>
             </div>
           </div>
         </div>
       </div>
+      {theNews.date !== null ? (
+        <div
+          id="social-media-for-a-post"
+          style={{ top: `${heightOfNews-150}px`, position: "relative" }}
+        >
+          <h2>Share this post</h2>
+          <br></br>
+          <div className="socials">
+            <a
+              href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.origin}/news/${theNews.data.link}`}
+              className="social facebook "
+              data-href={`${window.location.origin}/news/${theNews.data.link}`}
+              data-layout="button"
+              data-size="small"
+            >
+              <span className="icon">
+                <FacebookIcon></FacebookIcon>
+              </span>
+              <span className="the-text">Facebook</span>
+            </a>
+            <a
+              className="social twitter"
+              title="Share on twitter"
+              href={`https://twitter.com/intent/tweet?url=${window.location.origin}/news/${theNews.data.link}`}
+              rel="noopener"
+            >
+              <span className="icon">
+                <TwitterIcon></TwitterIcon>
+              </span>
+              <span className="the-text">Twitter</span>
+            </a>
+            <a
+              className="social whatsapp"
+              href={`whatsapp://send?text=${window.location.origin}/news/${theNews.data.link}`}
+              data-action="share/whatsapp/share"
+            >
+              <span className="icon">
+                <WhatsAppIcon></WhatsAppIcon>
+              </span>
+              <span className="the-text">Whatsapp</span>
+            </a>
+          </div>
+          <br></br>
+          <h2>Related Posts</h2>
+          <Trending posts={relatedPosts}></Trending>
+          <OtherNews posts={relatedPosts}></OtherNews>
+        </div>
+      ) : null}
     </div>
   );
 }

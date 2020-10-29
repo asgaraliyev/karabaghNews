@@ -17,13 +17,15 @@ export default function Menu() {
   return (
     <>
       <div className="logo-container">
-        <Image src={Logo}></Image>
+        <Link to="/" onClick={() => catagory_Changed()}>
+          <Image src={Logo}></Image>
+        </Link>
       </div>
       <h1>News</h1>
       <List>
         {catagories.map((text, index) => (
           <Link key={index} to={`/catagory/${text}`}>
-            <ListItem onClick={() => catagory_Changed(text)} button>
+            <ListItem onClick={() => catagory_Changed()} button>
               <h3>{text}</h3>
             </ListItem>
           </Link>

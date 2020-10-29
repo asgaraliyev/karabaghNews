@@ -14,8 +14,28 @@ header {
     // background: gray;
     .side {
         height: 100%;
+
         // background: yellow;
         // margin: 0px 1px;
+        .menu-by-red-cirlce {
+            position: relative;
+
+            span {
+                width: 10px;
+                height: 10px;
+                background: $pink;
+                position: absolute;
+                top: 0;
+                right: 0;
+                border-radius: 50%;
+                color: white;
+                font-size: 0.5em;
+                display: flex;
+                font-weight: bold;
+                align-items: center;
+                justify-content: center;
+            }
+        }
     }
 
     .left,
@@ -45,27 +65,9 @@ header {
             fill: $black;
         }
 
-      
 
-        .menu-by-red-cirlce {
-            position: relative;
 
-            span {
-                width: 10px;
-                height: 10px;
-                background: $pink;
-                position: absolute;
-                top: 0;
-                right: 0;
-                border-radius: 50%;
-                color: white;
-                font-size: 0.5em;
-                display: flex;
-                font-weight: bold;
-                align-items: center;
-                justify-content: center;
-            }
-        }
+
     }
 
     .right {

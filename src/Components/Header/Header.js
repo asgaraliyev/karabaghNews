@@ -27,7 +27,10 @@ export default function Header(props) {
     <header className={classNamee}>
       <div className="side left">
         {type === "home" ? (
-          <div className="menu-by-red-cirlce" onClick={()=>change_Menu_Stuation("MENU")}>
+          <div
+            className="menu-by-red-cirlce"
+            onClick={() => change_Menu_Stuation("MENU")}
+          >
             <MenuIcon
               info={{
                 classNamee: "icon",
@@ -49,8 +52,24 @@ export default function Header(props) {
         <h2 className={titleClassName}>{title}</h2>
       </div>
       <div className="side right">
-        {type == "anews" ? null : (
-          <div className="search-by-red-cirlce" onClick={()=>change_Menu_Stuation("SEARCH")}>
+        {type == "anews" ? (
+          <div
+          style={{width: "100%"}}
+            className="menu-by-red-cirlce"
+            onClick={() => change_Menu_Stuation("MENU")}
+          >
+            <MenuIcon
+              info={{
+                classNamee: backArrowClassName,
+              }}
+            ></MenuIcon>
+            <span>1</span>
+          </div>
+        ) : (
+          <div
+            className="search-by-red-cirlce"
+            onClick={() => change_Menu_Stuation("SEARCH")}
+          >
             <SearchIcon
               info={{
                 classNamee: "search-icon",

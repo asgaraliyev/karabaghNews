@@ -3,8 +3,10 @@
     width: 100%;
     position: absolute;
     top: 0;
-    left: 0;
+    left: 50%;
+    transform: translate(-50%, 0%);
     overflow: hidden;
+    max-width: 1000px;
 
     .expand {
         width: 100%;

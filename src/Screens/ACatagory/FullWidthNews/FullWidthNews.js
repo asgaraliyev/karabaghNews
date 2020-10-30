@@ -1,5 +1,4 @@
-import React, { Component, useState } from "react";
-import Image from "material-ui-image";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import ANewsContainer from "../../../Components/aNewsContainer/aNewsContainer";
 export default class FullWidthNews extends Component {

@@ -12,7 +12,7 @@ const initialState = [
   "Karabagh News Store",
 ];
 export const more_Catagories_Reducer = (state = initialState, action) => {
-  if (action.type == "NothingForNow") {
+  if (action.type === "NothingForNow") {
     return state;
   } else {
     return state;

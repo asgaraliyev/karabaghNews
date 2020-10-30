@@ -6,7 +6,6 @@ import Authors from "./Authors/Authors";
 import EditorChoise from "./EditorChoise/EditorChoise";
 import OtherNews from "../../Components/OtherNews/OtherNews";
 import getting_Posts_Function from "../../Functions/GettingPosts";
-import getting_Avarage_Population from "../../Functions/AvaragePopulation";
 import Loader from "../../Images/loader.webp";
 import ReactGA from "react-ga";
 ReactGA.initialize("G-250509579");

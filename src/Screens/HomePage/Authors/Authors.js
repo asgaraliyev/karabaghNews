@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -57,15 +57,12 @@ const Slider_Settings = {
 };
 export default function Authors({ posts }) {
   const classes = useStyles();
-  const profilePhotoLink =
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSStFBcu6lA7SmRZSdtUXP7dfRTcwPfSbyj4A&usqp=CAU";
-
   return (
     <div id="authors-slider">
       <Slider {...Slider_Settings}>
         {posts.map((post, index) => {
           var background_Color = "blue";
-          if (index % 2 == 0) {
+          if (index % 2 === 0) {
             background_Color = "red";
           }
           console.log(background_Color);

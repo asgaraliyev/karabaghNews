@@ -4,7 +4,6 @@ import {
   BrowserRouter as Router,
   Redirect,
   Route,
-  Link,
   Switch,
 } from "react-router-dom";
 import HomePage from "./Screens/HomePage/HomePage";
@@ -13,7 +12,7 @@ import ANews from "./Screens/aNews/ANews";
 import "./main.scss";
 import ls from "local-storage";
 import History from "./Config/History/RouterHistory";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import DrawerMenu from "./Components/Drawer/DrawerMenu";
 import AdminLogin from "./Screens/AdminPanel/AdminLogin/AdminLogin";
 import Dashboard from "./Screens/AdminPanel/Dashboard/Dashboard";
@@ -27,7 +26,6 @@ import { Spin } from "antd";
 ReactGA.initialize("G-250509579");
 function App() {
   var theMenu = useSelector((state) => state.theMenu.menuIsOpen);
-  const dispatch = useDispatch();
   if (theMenu) {
     document.body.classList.add("hidden");
   } else {
@@ -91,7 +89,7 @@ function App() {
 
 // screen if you're not yet authenticated.
 function PrivateRoute({ children, user }) {
-  if (user == null) {
+  if (user === null) {
     return (
       <div>
         <h1>Loading...</h1>

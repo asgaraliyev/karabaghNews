@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from "react";
+import React from "react";
 import "./scss/style.scss";
 import MenuIcon from "../../Icons/MenuIcon";
 // import { Colors } from "../../Config/Colors";
@@ -52,7 +52,7 @@ export default function Header(props) {
         <h2 className={titleClassName}>{title}</h2>
       </div>
       <div className="side right">
-        {type == "anews" ? (
+        {type === "anews" ? (
           <div
           style={{width: "100%"}}
             className="menu-by-red-cirlce"

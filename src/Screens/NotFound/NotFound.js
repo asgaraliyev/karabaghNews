@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import Header from "../../Components/Header/Header";
 import "./scss/style.scss";
 import { Button } from "antd";
-import Image from "material-ui-image";
 import { HomeOutlined } from "@ant-design/icons";
-import notFound from "./images/notFound.png";
 import { Link } from "react-router-dom";
 export default class NotFound extends Component {
   render() {

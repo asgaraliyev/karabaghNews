@@ -1,14 +1,12 @@
-import React, { Component, useState } from "react";
+import React, { Component} from "react";
 import SearchIcon from "@material-ui/icons/Search";
 import CallMadeIcon from "@material-ui/icons/CallMade";
 import { ListItem, List, ListItemIcon } from "@material-ui/core";
 import getAllPosts from "../../Functions/GettingPosts";
 import "./scss/style.scss";
-import firebase from "firebase";
 import { Link } from "react-router-dom";
 import "firebase/firestore";
 import SuperMarket from "../../Redux/SuperMarket/SuperMarket";
-import { createBrowserHistory } from "history";
 import { change_Menu_Stuation_Action } from "../../Redux/Actions/index";
 export default class SearchArea extends Component {
   constructor(props) {

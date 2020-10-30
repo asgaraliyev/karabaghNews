@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, {  useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Header from "../../Components/Header/Header";
 import ANewsContainer from "../../Components/aNewsContainer/aNewsContainer";
@@ -6,11 +6,9 @@ import { Typography } from "@material-ui/core";
 import "./scss/style.scss";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
-import InstagramIcon from "@material-ui/icons/Instagram";
 import { useMediaQuery } from "react-responsive";
 import Trending from "../../Components/Trending/Trending";
 import OtherNews from "../../Components/OtherNews/OtherNews";
-import GettingAPosts from "../../Functions/GettingAPosts";
 import GettingPosts from "../../Functions/GettingPosts";
 import { Avatar } from "@material-ui/core";
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";

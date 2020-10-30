@@ -12,7 +12,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { UncontrolledEditor } from "./AddPost";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import addOrEditPostFunction from "./Functions/AddOrEditPostFunction";
 import AddOrDeleteCatagoryFunction from "./Functions/AddOrDeleteCatagoryFunction";
@@ -34,7 +33,7 @@ export default function FullScreenDialog() {
   };
   const dialogComponentName = dialogReducerSelector.dialogComponentName;
   const editLink = dialogReducerSelector.link;
-  var theComponentItSelf, questionForSmallDialog, saveBtnFunction;
+  var  questionForSmallDialog
   var title = "Something went wrong here ...Sorry :(";
   if (dialogComponentName === "addPostComponent") {
     title = "add a new post";
@@ -142,7 +141,7 @@ export default function FullScreenDialog() {
   );
 }
 function TheComponent(props) {
-  if (props.componentName == "addPostComponent") {
+  if (props.componentName === "addPostComponent") {
     return (
       <UncontrolledEditor
         save={props.saveBtn}
@@ -150,11 +149,11 @@ function TheComponent(props) {
         edit={false}
       ></UncontrolledEditor>
     );
-  } else if (props.componentName == "addCatagoryComponent") {
+  } else if (props.componentName === "addCatagoryComponent") {
     return (
       <AddCatagory save={props.saveBtn} dispatch={props.dispatch}></AddCatagory>
     );
-  } else if (props.componentName == "editPostComponent") {
+  } else if (props.componentName === "editPostComponent") {
     return (
       <UncontrolledEditor
         save={props.saveBtn}

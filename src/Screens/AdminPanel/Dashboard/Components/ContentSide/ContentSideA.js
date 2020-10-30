@@ -4,7 +4,6 @@ import Store from "../../../../../Redux/SuperMarket/SuperMarket";
 import Dashboard from "../Components/Dashboard";
 import Posts from "../Components/Posts";
 import Catagories from "../Components/Catagories";
-import { UncontrolledEditor } from "../Components/AddPost";
 import "./scss/style.scss";
 function DashboardComponent() {
   return (

@@ -4,10 +4,9 @@
 import * as firebase from "firebase";
 import "firebase/firestore";
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
 import "antd/dist/antd.css";
 import Image from "material-ui-image";
-import { Table, Radio, Divider, Button } from "antd";
+import { Table, Button } from "antd";
 import { useDispatch } from "react-redux";
 import { change_Dialog_Content_Action } from "../../../../../Redux/Actions/index";
 const columns = [
@@ -94,7 +93,6 @@ const Demo = (props) => {
     });
   };
   const editHandler = () => {
-    const db = firebase.firestore();
     selected.map((row) => {
       var result = window.confirm("Di you want to edit " + row.title + "?");
       if (result) {

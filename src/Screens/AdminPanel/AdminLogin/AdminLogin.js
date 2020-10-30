@@ -1,15 +1,8 @@
 import React, { Component } from "react";
 import "./scss/style.scss";
-import Logo from "../../../Images/logo.jpg";
 import {
   Container,
-  List,
-  ListItem,
-  TextField,
-  Button,
-  Form,
 } from "@material-ui/core";
-import Image from "material-ui-image";
 import firebase from "../../../Firebase";
 import * as firebaseui from "firebaseui";
 export default class AdminLogin extends Component {

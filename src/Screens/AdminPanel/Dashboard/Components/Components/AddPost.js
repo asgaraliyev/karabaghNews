@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import { EditorState } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-import { TextField, NativeSelect, List, ListItem } from "@material-ui/core";
+import { TextField, NativeSelect, List } from "@material-ui/core";
 import firebase from "firebase";
 import "firebase/firestore";
 import "firebase/storage";
 import draftToHtml from "draftjs-to-html";
 import { add_Post_Action } from "../../../../../Redux/Actions/index";
-import { Upload, message, Checkbox } from "antd";
+import { Upload,  Checkbox } from "antd";
 import { InboxOutlined } from "@ant-design/icons";
 import gettingAPost from "../../../../../Functions/GettingAPosts";
 import Chance from "chance";
@@ -24,7 +24,6 @@ const openNotificationWithIcon = (info) => {
 };
 const chance = new Chance();
 const { Dragger } = Upload;
- 
 
 export class UncontrolledEditor extends Component {
   constructor(props) {
@@ -220,7 +219,7 @@ export class UncontrolledEditor extends Component {
         const link = converted.toLocaleLowerCase().split(" ");
         var theLink = "";
         link.map((item) => {
-          if (item != "") {
+          if (item !== "") {
             theLink += item + "-";
           }
         });

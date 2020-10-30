@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "material-ui-image";
 import ANewsContainer from "../../aNewsContainer/aNewsContainer";
 
 export default function ImageComponent(props) {

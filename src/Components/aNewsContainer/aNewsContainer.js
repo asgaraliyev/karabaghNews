@@ -3,6 +3,8 @@ import "./scss/style.scss";
 import Image from "material-ui-image";
 import { PropTypes } from "prop-types";
 import ReactTimeAgo from "react-time-ago";
+import Logo from "../../Images/logo.webp";
+
 export default class ANewsContainer extends Component {
   render() {
     const { width, height, imageLink, title, time, content } = this.props;
@@ -28,7 +30,12 @@ export default class ANewsContainer extends Component {
             <div className="content">
               <h5>{title}</h5>
               {time !== null ? (
-                <ReactTimeAgo style={{fontSize:"0.8em"}} date={time} locale="az-Az" timeStyle="round" />
+                <ReactTimeAgo
+                  style={{ fontSize: "0.8em" }}
+                  date={time}
+                  locale="az-Az"
+                  timeStyle="round"
+                />
               ) : null}
             </div>
           </div>
@@ -37,7 +44,6 @@ export default class ANewsContainer extends Component {
     );
   }
 }
-
 ANewsContainer.propTypes = {
   title: PropTypes.string,
   time: PropTypes.string,
@@ -49,9 +55,6 @@ ANewsContainer.propTypes = {
 ANewsContainer.defaultProps = {
   title: "The title of this news did not typed",
   time: null,
-  imageLink:
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTYrbT4C-b0UceJVk4Szi4NVBKxXC517hGb3Q&usqp=CAU",
-    // TODOO Not found Image from static
+  imageLink: Logo,
   content: true,
 };
- 

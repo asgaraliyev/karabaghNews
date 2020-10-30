@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import Header from "../../Components/Header/Header";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -23,7 +23,7 @@ export default function ACatagory() {
   const [fullWidthPostTwo, setFullWidthPostTwo] = useState(null);
   const [secondNewsContainer, setsecondNewsContainer] = useState(null);
   var { catagoryName } = useParams();
-  const [theCatagory, setTheCatagory] = useState(null);
+  // const [theCatagory, setTheCatagory] = useState(null);
   const dispatch = useDispatch();
   useEffect(() => {
     GettingCatagories().then((result) => {
@@ -33,7 +33,7 @@ export default function ACatagory() {
         catagoryName = catagories[0];
         const history = createBrowserHistory();
         history.push("/catagory/" + catagoryName);
-        setTheCatagory(catagories[0]);
+        this.setTheCatagory(catagories[0]);
       }
 
       document.title = `${catagoryName} News`;

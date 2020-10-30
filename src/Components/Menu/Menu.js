@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import Image from "material-ui-image";
-import Logo from "../../Images/logo.jpg";
+import Logo from "../../Images/logo.webp";
 import { Typography } from "@material-ui/core";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import { change_Menu_Stuation_Action } from "../../Redux/Actions/index";
 export default function Menu() {
   const catagories = useSelector((state) => state.catagories);
-  const moreCatagories = useSelector((state) => state.moreCatagories);
+  // const moreCatagories = useSelector((state) => state.moreCatagories);
   const dispatch = useDispatch();
   function catagory_Changed() {
     dispatch(change_Menu_Stuation_Action("MENU"));
